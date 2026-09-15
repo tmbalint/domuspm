@@ -248,11 +248,11 @@ function ContactSection() {
           <h2 className="mt-4 text-3xl sm:text-4xl">{t.contact.title}</h2>
           <p className="mt-3 max-w-md text-sm text-muted-foreground">{t.contact.body}</p>
           <div className="mt-8 space-y-3 text-sm">
-            <a href="mailto:hello@domuspm.com" className="flex items-center gap-3 hover:text-accent">
-              <Mail className="h-4 w-4 shrink-0 text-accent" /> hello@domuspm.com
+            <a href="mailto:timarbalint60@gmail.com" className="flex items-center gap-3 hover:text-accent">
+              <Mail className="h-4 w-4 shrink-0 text-accent" /> timarbalint60@gmail.com
             </a>
-            <a href="tel:+36301234567" className="flex items-center gap-3 hover:text-accent">
-              <Phone className="h-4 w-4 shrink-0 text-accent" /> +36 30 123 4567
+            <a href="tel:+36705424017" className="flex items-center gap-3 hover:text-accent">
+              <Phone className="h-4 w-4 shrink-0 text-accent" /> +36 70 542 4017
             </a>
             <p className="flex items-center gap-3 text-muted-foreground">
               <MapPin className="h-4 w-4 shrink-0 text-accent" /> Budapest, Hungary
