@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone } from "lucide-react";
 import logo from "@/assets/domus-logo.png.asset.json";
 import { useLang } from "@/lib/i18n";
 import { LangToggle } from "./Header";
@@ -18,8 +18,11 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 text-sm md:items-end">
-          <a href="mailto:hello@domuspm.com" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
-            <Mail className="h-4 w-4" /> hello@domuspm.com
+          <a href="mailto:timarbalint60@gmail.com" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
+            <Mail className="h-4 w-4" /> timarbalint60@gmail.com
+          </a>
+          <a href="tel:+36705424017" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
+            <Phone className="h-4 w-4" /> +36 70 542 4017
           </a>
           <div className="flex gap-4">
             <a href="https://instagram.com" aria-label="Instagram" className="text-primary-foreground/70 hover:text-accent">
