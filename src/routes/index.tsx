@@ -51,7 +51,7 @@ function Site() {
 
   const tours: Tour[] = t.tours.items.map((item, i) => ({
     ...item,
-    image: tourImages[i],
+    image: tourImages[i] ?? tourImages[0]!,
   }));
 
   return (
