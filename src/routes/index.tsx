@@ -13,8 +13,11 @@ import { Footer } from "@/components/site/Footer";
 import { TourCard, type Tour } from "@/components/site/TourCard";
 import { ArchDivider, ArchIcon, Eyebrow } from "@/components/site/Arch";
 
+const SITE_URL = "https://domuspropertymedia.lovable.app";
+
 export const Route = createFileRoute("/")({
   component: Page,
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Domus Property Media — 360° Virtual Tours in Budapest" },
@@ -29,9 +32,32 @@ export const Route = createFileRoute("/")({
         content:
           "360° virtual tours for homes, Airbnb rentals and small businesses in Budapest. Ready in 48 hours.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Domus Property Media",
+          description:
+            "360° virtual tours for homes, Airbnb rentals and small businesses, embedded on Google Maps and your website.",
+          url: `${SITE_URL}/`,
+          telephone: "+36705424017",
+          email: "timarbalint60@gmail.com",
+          image: `${SITE_URL}/favicon.png`,
+          priceRange: "19,990 HUF - 29,990 HUF",
+          areaServed: "Hungary",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Budapest",
+            addressCountry: "HU",
+          },
+        }),
+      },
+    ],
   }),
 });
 
