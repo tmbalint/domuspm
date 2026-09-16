@@ -92,7 +92,7 @@ export const hu = {
     sent: "Köszönjük, hamarosan válaszolunk.",
   },
   footer: {
-    tagline: "360° virtuális túrák Budapesten.",
+    tagline: "360° virtuális túrák országszerte.",
     rights: "Minden jog fenntartva.",
   },
 };
