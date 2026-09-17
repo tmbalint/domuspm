@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Building2, Coffee, Clock, Quote, Mail, Phone, MapPin } from "lucide-react";
+import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin } from "lucide-react";
 
 import heroImg from "@/assets/hero.jpg";
 import cafeImg from "@/assets/tour-cafe.jpg";
@@ -144,11 +144,11 @@ function Site() {
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.services.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.services.title}</h2>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
               {t.services.items.map((item, i) => (
                 <article key={item.title} className="rounded-sm border border-border bg-card p-8">
                   <span className="text-accent">
-                    {i === 0 ? <Building2 className="h-6 w-6" /> : <Coffee className="h-6 w-6" />}
+                    {i === 0 ? <Building2 className="h-6 w-6" /> : i === 1 ? <Coffee className="h-6 w-6" /> : <Hotel className="h-6 w-6" />}
                   </span>
                   <h3 className="mt-5 text-xl">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
@@ -172,7 +172,7 @@ function Site() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {t.pricing.tiers.map((tier) => {
                 const featured = "featured" in tier && tier.featured;
                 return (
