@@ -1,5 +1,4 @@
 import { Instagram, Facebook, Mail, Phone } from "lucide-react";
-import logo from "@/assets/domus-logo.png.asset.json";
 import { useLang } from "@/lib/i18n";
 import { LangToggle } from "./Header";
 
