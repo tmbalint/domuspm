@@ -1,5 +1,4 @@
 import { Instagram, Facebook, Mail, Phone } from "lucide-react";
-import logo from "@/assets/domus-logo.png.asset.json";
 import { useLang } from "@/lib/i18n";
 import { LangToggle } from "./Header";
 
@@ -9,7 +8,7 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto]">
         <div className="flex min-w-0 items-start gap-4">
-          <img src={logo.url} alt="Domus Property Media" className="h-14 w-14 shrink-0" />
+          <img src="/favicon.png" alt="Domus Property Media" className="h-14 w-14 shrink-0" />
           <div className="min-w-0">
             <p className="font-display text-base font-bold tracking-[0.22em] uppercase">Domus</p>
             <p className="eyebrow text-accent">Property Media</p>
