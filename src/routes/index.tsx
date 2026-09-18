@@ -285,6 +285,8 @@ function ContactSection() {
           name: form.name,
           email: form.email,
           type: form.type,
+          squaremeter: form.squaremeter,
+          city: form.city,
           message: form.message,
           subject: "New inquiry from domustours.com",
         }),
@@ -351,6 +353,24 @@ function ContactSection() {
                 ))}
               </select>
             </label>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="eyebrow text-muted-foreground">{t.contact.squaremeter}</span>
+                <input
+                  value={form.squaremeter}
+                  onChange={update("squaremeter")}
+                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                />
+              </label>
+              <label className="grid gap-2">
+                <span className="eyebrow text-muted-foreground">{t.contact.city}</span>
+                <input
+                  value={form.city}
+                  onChange={update("city")}
+                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                />
+              </label>
+            </div>
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.message}</span>
               <textarea
