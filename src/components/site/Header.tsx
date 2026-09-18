@@ -41,7 +41,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-primary-foreground/10 bg-primary/90 text-primary-foreground backdrop-blur-md">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 sm:px-8">
         <a href="#top" className="flex min-w-0 items-center gap-3">
-          <img src={logo.url} alt="Domus Property Media" className="h-10 w-10 shrink-0" />
+          <img src="/favicon.png" alt="Domus Property Media" className="h-10 w-10 shrink-0" />
           <span className="min-w-0 truncate font-display text-sm font-bold tracking-[0.22em] uppercase">
             Domus
           </span>
