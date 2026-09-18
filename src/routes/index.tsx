@@ -265,6 +265,38 @@ function Site() {
 function ContactSection() {
   const { t } = useLang();
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", type: "", message: "" });
+
+  const update = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setForm((prev) => ({ ...prev, [field]: e.target.value }));
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(false);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "6c4c39e7-b049-4a1c-b614-4b57e8aa4432",
+          name: form.name,
+          email: form.email,
+          type: form.type,
+          message: form.message,
+          subject: "New inquiry from domustours.com",
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <section id="contact" className="section bg-secondary">
@@ -286,18 +318,14 @@ function ContactSection() {
           </div>
         </div>
 
-        <form
-          className="rounded-sm border border-border bg-card p-6 sm:p-8"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-        >
+        <form className="rounded-sm border border-border bg-card p-6 sm:p-8" onSubmit={handleSubmit}>
           <div className="grid gap-5">
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.name}</span>
               <input
                 required
+                value={form.name}
+                onChange={update("name")}
                 className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
               />
             </label>
@@ -306,12 +334,18 @@ function ContactSection() {
               <input
                 type="email"
                 required
+                value={form.email}
+                onChange={update("email")}
                 className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
               />
             </label>
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.type}</span>
-              <select className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent">
+              <select
+                value={form.type}
+                onChange={update("type")}
+                className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+              >
                 {t.contact.typeOptions.map((o) => (
                   <option key={o}>{o}</option>
                 ))}
@@ -321,13 +355,16 @@ function ContactSection() {
               <span className="eyebrow text-muted-foreground">{t.contact.message}</span>
               <textarea
                 rows={4}
+                value={form.message}
+                onChange={update("message")}
                 className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
               />
             </label>
-            <button type="submit" className="btn-gold w-full">
-              {t.contact.submit}
+            <button type="submit" disabled={submitting} className="btn-gold w-full disabled:opacity-60 disabled:cursor-not-allowed">
+              {submitting ? "..." : t.contact.submit}
             </button>
             {sent && <p className="text-sm text-accent">{t.contact.sent}</p>}
+            {error && <p className="text-sm text-destructive">Something went wrong, please email us directly.</p>}
           </div>
         </form>
       </div>
