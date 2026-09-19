@@ -172,7 +172,7 @@ function Site() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {t.pricing.tiers.map((tier) => {
                 const featured = "featured" in tier && tier.featured;
                 return (
