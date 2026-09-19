@@ -242,7 +242,7 @@ function Site() {
         </section>
 
         {/* Testimonials */}
-        <section className="section">
+        <section id="testimonials" className="section">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.testimonials.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.testimonials.title}</h2>
