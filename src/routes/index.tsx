@@ -178,21 +178,13 @@ function Site() {
                 return (
                   <article
                     key={tier.size}
-                    className={`flex flex-col rounded-sm border p-8 ${
-                      featured
-                        ? "border-accent bg-primary text-primary-foreground"
-                        : "border-border bg-card"
+                    className={`flex flex-col rounded-sm border bg-primary p-8 text-primary-foreground ${
+                      featured ? "border-accent" : "border-primary-foreground/15"
                     }`}
                   >
                     <ArchIcon className="h-7 w-7 text-accent" />
                     <p className="mt-6 font-display text-3xl font-bold">{tier.price}</p>
-                    <p
-                      className={`mt-2 text-sm ${
-                        featured ? "text-primary-foreground/70" : "text-muted-foreground"
-                      }`}
-                    >
-                      {tier.size}
-                    </p>
+                    <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
                     <a href="#contact" className="btn-outline-gold mt-8 w-full">
                       {tier.cta}
                     </a>
