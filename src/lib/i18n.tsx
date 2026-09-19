@@ -73,11 +73,11 @@ export const hu = {
     eyebrow: "Rólunk",
     title: "Mi vagyunk a Domus Property Media.",
     paragraphs: [
-      "Egy ingatlan hirdetése ma többet igényel néhány fotónál és egy leírásnál. A vevők százai között görgetnek, és másodpercek alatt döntenek. Látni akarják a teret, érezni az elrendezést, és megbízni abban, amit látnak, mielőtt felemelnék a telefont.",
-      "Ezt adjuk mi. 360° virtuális túráinkkal bárki végigsétálhat egy ingatlanon a telefonjáról vagy laptopjáról: minden szoba, valódi arányok, pontosan úgy, ahogy van. A tulajdonosok és ügynökök olyan hirdetést kapnak, amely kiemelkedik, profinak hat, és már az első kattintástól bizalmat ébreszt. A vevők teljes képet kapnak, beleértve azokat is, akik külföldön vagy az ország másik felén élnek, és nem tudnak könnyen eljönni. Kevesebb felesleges szemlét, tájékozottabb érdeklődéseket és gyorsabb döntést eredményez.",
-      "Az eladás csak az első lépés. Rövid távú bérlemények, szállodai szobák, lounge-ok, éttermek, kávézók: ha valaki látni akar egy teret, mielőtt választ, mi lefotózzuk.",
-      "Budapesten, valamint Mosonmagyaróvár és Győr környékén dolgozunk. A folyamat egyszerű: jövünk, fotózunk, és 48 órán belül élő a túrád. Az eredmény prémium.",
-      "Az ingatlanod, pontosan úgy, ahogy van, a legjobb formájában. Ez a Domus.",
+      "Egy ingatlan hirdetéséhez ma már nem elég néhány fotó és egy leírás. A vebők százával görgetik a hirdetéseket, és másodpercek alatt döntenek. Látni akarják a teret, átérezni az elrendezést, és bízni akarnak abban, amit látnak, még mielőtt felhívnák a hirdetőt.",
+      "Mi ezt a bizonytalanságot segítünk kiküszöbölni. 360°-os virtuális túráinkkal bárki végigsétálhat az ingatlanon telefonról vagy laptopról: minden szoba, valódi arányok, pontosan úgy, ahogy van. A tulajdonosok és az ügynökök kiemelkedő, profi hatású hirdetést kapnak, amely már az első kattintásnál bizalmat épít. A vevők teljes képet kapnak, az is, aki külföldön vagy az ország másik felén él, és nem tud könnyen eljönni. Így kevesebb a felesleges megtekintés, tájékozottabbak az érdeklődők, és gyorsabb a döntés.",
+      "Az értékesítés csak a kezdet. Rövid távú bérlemények, szállodai szobák, lounge-ok, éttermek, kávézók: ha valaki látni akarja a teret, mielőtt választ, mi elkészítjük hozzá a túrát.",
+      "Budapesten, valamint Mosonmagyaróvár és Győr környékén dolgozunk. A folyamat egyszerű: kimegyünk, felvételt készítünk, és 48 órán belül elkészül a túra. Az eredmény magáért beszél.",
+      "Minden tér, pontosan úgy, ahogy van, a legjobb formájában. Ez a Domus.",
     ],
   },
   testimonials: {
