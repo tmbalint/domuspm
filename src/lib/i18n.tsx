@@ -167,7 +167,6 @@ export const en: Dict = {
     tiers: [
       { price: "19,990 HUF", size: "up to 60 m²", cta: "Get a Quote" },
       { price: "29,990 HUF", size: "up to 120 m²", cta: "Get a Quote", featured: true },
-      { price: "19,990 HUF / room", size: "Hotel room or lounge", cta: "Get a Quote" },
       { price: "Custom quote", size: "above 120 m² or larger hotel", cta: "Contact us" },
     ],
   },
