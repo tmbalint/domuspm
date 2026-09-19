@@ -71,8 +71,14 @@ export const hu = {
   },
   about: {
     eyebrow: "Rólunk",
-    title: "Budapesti csapat, gyors átfutás",
-    body: "Budapesten dolgozunk, helyben. A felvételt 48 órán belül kész, beágyazható túraként adjuk át. Egyszerű folyamat, prémium eredmény.",
+    title: "Mi vagyunk a Domus Property Media.",
+    paragraphs: [
+      "Egy ingatlan hirdetése ma többet igényel néhány fotónál és egy leírásnál. A vevők százai között görgetnek, és másodpercek alatt döntenek. Látni akarják a teret, érezni az elrendezést, és megbízni abban, amit látnak, mielőtt felemelnék a telefont.",
+      "Ezt adjuk mi. 360° virtuális túráinkkal bárki végigsétálhat egy ingatlanon a telefonjáról vagy laptopjáról: minden szoba, valódi arányok, pontosan úgy, ahogy van. A tulajdonosok és ügynökök olyan hirdetést kapnak, amely kiemelkedik, profinak hat, és már az első kattintástól bizalmat ébreszt. A vevők teljes képet kapnak, beleértve azokat is, akik külföldön vagy az ország másik felén élnek, és nem tudnak könnyen eljönni. Kevesebb felesleges szemlét, tájékozottabb érdeklődéseket és gyorsabb döntést eredményez.",
+      "Az eladás csak az első lépés. Rövid távú bérlemények, szállodai szobák, lounge-ok, éttermek, kávézók: ha valaki látni akar egy teret, mielőtt választ, mi lefotózzuk.",
+      "Budapesten, valamint Mosonmagyaróvár és Győr környékén dolgozunk. A folyamat egyszerű: jövünk, fotózunk, és 48 órán belül élő a túrád. Az eredmény prémium.",
+      "Az ingatlanod, pontosan úgy, ahogy van, a legjobb formájában. Ez a Domus.",
+    ],
   },
   testimonials: {
     eyebrow: "Vélemények",
@@ -171,8 +177,14 @@ export const en: Dict = {
   },
   about: {
     eyebrow: "About",
-    title: "A Budapest team with a fast turnaround",
-    body: "We work locally in Budapest. Your tour is shot, produced and ready to embed within 48 hours. Simple process, premium result.",
+    title: "We're Domus Property Media.",
+    paragraphs: [
+      "Advertising a property today takes more than a few photos and a description. Buyers scroll past hundreds of listings and decide in seconds. They want to see the space, feel the layout and trust what they're looking at before they pick up the phone.",
+      "That's what we deliver. Our 360° virtual tours let anyone walk through a property from their phone or laptop: every room, real proportions, exactly as it is. Owners and agents get a listing that stands out, looks professional and earns trust from the first click. Buyers get the full picture, including those who live abroad or across the country and can't easily visit. Fewer wasted viewings, better-informed inquiries, and a faster path to a decision.",
+      "Sales are just the start. Short-term rentals, hotel rooms, lounges, restaurants, cafés: if someone wants to see a space before they choose it, we shoot it.",
+      "We work across Budapest and around Mosonmagyaróvár and Győr. The process is simple: we come, we shoot, and within 48 hours your tour is live. The result is premium.",
+      "Your property, exactly as it is, at its best. That's Domus.",
+    ],
   },
   testimonials: {
     eyebrow: "Testimonials",
