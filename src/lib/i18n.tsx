@@ -61,7 +61,6 @@ export const hu = {
     tiers: [
       { price: "19 990 Ft", size: "60 m²-ig", cta: "Kérj ajánlatot" },
       { price: "29 990 Ft", size: "120 m²-ig", cta: "Kérj ajánlatot", featured: true },
-      { price: "19 990 Ft / szoba", size: "Szállodai szoba vagy lounge", cta: "Kérj ajánlatot" },
       { price: "Egyedi ár", size: "120 m² felett vagy nagyobb szálloda", cta: "Kérj egyedi ajánlatot" },
     ],
   },
@@ -168,7 +167,6 @@ export const en: Dict = {
     tiers: [
       { price: "19,990 HUF", size: "up to 60 m²", cta: "Get a Quote" },
       { price: "29,990 HUF", size: "up to 120 m²", cta: "Get a Quote", featured: true },
-      { price: "19,990 HUF / room", size: "Hotel room or lounge", cta: "Get a Quote" },
       { price: "Custom quote", size: "above 120 m² or larger hotel", cta: "Contact us" },
     ],
   },
