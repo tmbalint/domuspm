@@ -73,7 +73,7 @@ export const hu = {
     eyebrow: "Rólunk",
     title: "Mi vagyunk a Domus Property Media.",
     paragraphs: [
-      "Egy ingatlan hirdetéséhez ma már nem elég néhány fotó és egy leírás. A vebők százával görgetik a hirdetéseket, és másodpercek alatt döntenek. Látni akarják a teret, átérezni az elrendezést, és bízni akarnak abban, amit látnak, még mielőtt felhívnák a hirdetőt.",
+      "Egy ingatlan hirdetéséhez ma már nem elég néhány fotó és egy leírás. A vevők százával görgetik a hirdetéseket, és másodpercek alatt döntenek. Látni akarják a teret, átérezni az elrendezést, és bízni akarnak abban, amit látnak, még mielőtt felhívnák a hirdetőt.",
       "Mi ezt a bizonytalanságot segítünk kiküszöbölni. 360°-os virtuális túráinkkal bárki végigsétálhat az ingatlanon telefonról vagy laptopról: minden szoba, valódi arányok, pontosan úgy, ahogy van. A tulajdonosok és az ügynökök kiemelkedő, profi hatású hirdetést kapnak, amely már az első kattintásnál bizalmat épít. A vevők teljes képet kapnak, az is, aki külföldön vagy az ország másik felén él, és nem tud könnyen eljönni. Így kevesebb a felesleges megtekintés, tájékozottabbak az érdeklődők, és gyorsabb a döntés.",
       "Az értékesítés csak a kezdet. Rövid távú bérlemények, szállodai szobák, lounge-ok, éttermek, kávézók: ha valaki látni akarja a teret, mielőtt választ, mi elkészítjük hozzá a túrát.",
       "Budapesten, valamint Mosonmagyaróvár és Győr környékén dolgozunk. A folyamat egyszerű: kimegyünk, felvételt készítünk, és 48 órán belül elkészül a túra. Az eredmény magáért beszél.",
