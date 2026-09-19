@@ -35,6 +35,7 @@ export function Header() {
     { href: "#pricing", label: t.nav.pricing },
     { href: "#portfolio", label: t.nav.portfolio },
     { href: "#about", label: t.nav.about },
+    { href: "#testimonials", label: t.nav.testimonials },
   ];
 
   return (
