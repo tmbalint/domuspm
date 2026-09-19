@@ -61,7 +61,6 @@ export const hu = {
     tiers: [
       { price: "19 990 Ft", size: "60 m²-ig", cta: "Kérj ajánlatot" },
       { price: "29 990 Ft", size: "120 m²-ig", cta: "Kérj ajánlatot", featured: true },
-      { price: "19 990 Ft / szoba", size: "Szállodai szoba vagy lounge", cta: "Kérj ajánlatot" },
       { price: "Egyedi ár", size: "120 m² felett vagy nagyobb szálloda", cta: "Kérj egyedi ajánlatot" },
     ],
   },
