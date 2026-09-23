@@ -187,9 +187,11 @@ function Site() {
                       <p className="font-display text-3xl font-bold">{tier.price}</p>
                       <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
                     </div>
-                    <a href="#contact" className="btn-outline-gold mt-auto self-center">
-                      {tier.cta}
-                    </a>
+                    <div className="mt-auto flex justify-center pt-6">
+                      <a href="#contact" className="btn-outline-gold">
+                        {tier.cta}
+                      </a>
+                    </div>
                   </article>
                 );
               })}
