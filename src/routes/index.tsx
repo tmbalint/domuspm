@@ -183,9 +183,11 @@ function Site() {
                     }`}
                   >
                     <ArchIcon className="h-7 w-7 text-accent" />
-                    <p className="mt-6 font-display text-3xl font-bold">{tier.price}</p>
-                    <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
-                    <a href="#contact" className="btn-outline-gold mt-auto self-center pt-6">
+                    <div className="mt-6">
+                      <p className="font-display text-3xl font-bold">{tier.price}</p>
+                      <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
+                    </div>
+                    <a href="#contact" className="btn-outline-gold mt-auto self-center">
                       {tier.cta}
                     </a>
                   </article>
