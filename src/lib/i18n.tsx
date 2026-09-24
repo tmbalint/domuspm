@@ -211,7 +211,7 @@ export const en: Dict = {
     sent: "Thank you — we'll be in touch shortly.",
   },
   footer: {
-    tagline: "360° virtual tours in Budapest.",
+    tagline: "360° virtual tours nationwide.",
     rights: "All rights reserved.",
   },
 };
