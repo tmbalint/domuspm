@@ -35,7 +35,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 px-5 py-5 text-center text-xs text-primary-foreground/50 sm:px-8">
-        © {new Date().getFullYear()} Domus Property Media · domuspm.com · {t.footer.rights}
+        © {new Date().getFullYear()} Domus Property Media · domustours.com · {t.footer.rights}
       </div>
     </footer>
   );
