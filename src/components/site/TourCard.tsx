@@ -16,6 +16,7 @@ export function TourCard({ tour, label, open }: { tour: Tour; label: string; ope
           <iframe
             src={tour.embedUrl}
             title={tour.name}
+            allow="fullscreen; gyroscope; accelerometer"
             allowFullScreen
             loading="lazy"
             className="h-full w-full border-0"

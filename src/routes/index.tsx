@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin } from "lucide-react";
+import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin, Ruler } from "lucide-react";
 
 import heroImg from "@/assets/hero.jpg";
 import cafeImg from "@/assets/tour-cafe.jpg";
@@ -78,6 +78,7 @@ function Site() {
   const tours: Tour[] = t.tours.items.map((item, i) => ({
     ...item,
     image: tourImages[i] ?? tourImages[0]!,
+    embedUrl: i === 0 ? "https://www.keypano.com/v/ahi3dctec6a8n0-1790271850.html" : undefined,
   }));
 
   return (
@@ -144,11 +145,11 @@ function Site() {
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.services.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.services.title}</h2>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {t.services.items.map((item, i) => (
                 <article key={item.title} className="rounded-sm border border-border bg-card p-8">
                   <span className="text-accent">
-                    {i === 0 ? <Building2 className="h-6 w-6" /> : i === 1 ? <Coffee className="h-6 w-6" /> : <Hotel className="h-6 w-6" />}
+                    {i === 0 ? <Building2 className="h-6 w-6" /> : i === 1 ? <Coffee className="h-6 w-6" /> : i === 2 ? <Hotel className="h-6 w-6" /> : <Ruler className="h-6 w-6" />}
                   </span>
                   <h3 className="mt-5 text-xl">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
@@ -179,7 +180,16 @@ function Site() {
                 <div className="space-y-2">
                   <h3 className="text-xl">{t.process.deliverTitle}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{t.process.deliverBody}</p>
-                  <p className="text-xs text-accent">{t.process.deliverAddon}</p>
+                </div>
+              </div>
+            </article>
+            <article className="mt-6 rounded-sm border border-accent bg-card p-8">
+              <div className="flex items-start gap-4">
+                <Ruler className="mt-1 h-7 w-7 shrink-0 text-accent" />
+                <div className="space-y-2">
+                  <p className="eyebrow text-accent">{t.process.addonTag}</p>
+                  <h3 className="text-xl">{t.process.addonTitle}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{t.process.addonBody}</p>
                 </div>
               </div>
             </article>
@@ -202,13 +212,10 @@ function Site() {
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {t.pricing.tiers.map((tier) => {
-                const featured = "featured" in tier && tier.featured;
                 return (
                   <article
                     key={tier.size}
-                    className={`flex flex-col rounded-sm border bg-primary p-8 text-primary-foreground ${
-                      featured ? "border-accent" : "border-primary-foreground/15"
-                    }`}
+                    className="flex flex-col rounded-sm border border-accent bg-primary p-8 text-primary-foreground"
                   >
                     <ArchIcon className="h-7 w-7 text-accent" />
                     <div className="mt-6">
@@ -216,7 +223,7 @@ function Site() {
                       <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
                     </div>
                     <div className="mt-auto flex justify-center pt-6">
-                      <a href="#contact" className="btn-outline-gold">
+                      <a href="#contact" className="btn-outline-gold w-full">
                         {tier.cta}
                       </a>
                     </div>
@@ -298,16 +305,34 @@ function ContactSection() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", type: "", squaremeter: "", city: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", type: "0", size: "0", squaremeter: "", city: "", message: "" });
 
   const update = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const updateSize = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const size = e.target.value;
+    setForm((prev) => ({ ...prev, size, squaremeter: size === "2" ? prev.squaremeter : "" }));
+  };
+
+  const updateSquaremeter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === "" || /^\d+$/.test(value)) {
+      setForm((prev) => ({ ...prev, squaremeter: value }));
+    }
+  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(false);
     setSubmitting(true);
     try {
+      const selectedType = t.contact.typeOptions[Number(form.type)] ?? t.contact.typeOptions[0];
+      const selectedSize = t.contact.sizeOptions[Number(form.size)] ?? t.contact.sizeOptions[0];
+      if (form.size === "2" && (!/^\d+$/.test(form.squaremeter) || Number(form.squaremeter) < 121)) {
+        setError(true);
+        return;
+      }
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -315,8 +340,9 @@ function ContactSection() {
           access_key: "6c4c39e7-b049-4a1c-b614-4b57e8aa4432",
           name: form.name,
           email: form.email,
-          type: form.type,
-          squaremeter: form.squaremeter,
+          type: selectedType,
+          size: selectedSize,
+          ...(form.size === "2" ? { squaremeter: form.squaremeter } : {}),
           city: form.city,
           message: form.message,
           subject: "New inquiry from domustours.com",
@@ -377,21 +403,27 @@ function ContactSection() {
               <select
                 value={form.type}
                 onChange={update("type")}
+                required
                 className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
               >
-                {t.contact.typeOptions.map((o) => (
-                  <option key={o}>{o}</option>
+                {t.contact.typeOptions.map((o, i) => (
+                  <option key={o} value={String(i)}>{o}</option>
                 ))}
               </select>
             </label>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2">
-                <span className="eyebrow text-muted-foreground">{t.contact.squaremeter}</span>
-                <input
-                  value={form.squaremeter}
-                  onChange={update("squaremeter")}
+                <span className="eyebrow text-muted-foreground">{t.contact.size}</span>
+                <select
+                  required
+                  value={form.size}
+                  onChange={updateSize}
                   className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
-                />
+                >
+                  {t.contact.sizeOptions.map((o, i) => (
+                    <option key={o} value={String(i)}>{o}</option>
+                  ))}
+                </select>
               </label>
               <label className="grid gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.city}</span>
@@ -402,6 +434,27 @@ function ContactSection() {
                 />
               </label>
             </div>
+            {form.size === "2" && (
+              <label className="grid gap-2">
+                <span className="eyebrow text-muted-foreground">{t.contact.squaremeter}</span>
+                <input
+                  type="number"
+                  min={121}
+                  step={1}
+                  inputMode="numeric"
+                  required
+                  value={form.squaremeter}
+                  onChange={updateSquaremeter}
+                  onKeyDown={(e) => {
+                    if ([".", ",", "e", "E", "+", "-"].includes(e.key)) e.preventDefault();
+                  }}
+                  onPaste={(e) => {
+                    if (!/^\d+$/.test(e.clipboardData.getData("text"))) e.preventDefault();
+                  }}
+                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                />
+              </label>
+            )}
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.message}</span>
               <textarea
