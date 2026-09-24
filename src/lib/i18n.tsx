@@ -64,6 +64,19 @@ export const hu = {
       { price: "Egyedi ár", size: "120 m² felett vagy nagyobb szálloda", cta: "Kérj egyedi ajánlatot" },
     ],
   },
+  process: {
+    eyebrow: "Hogyan működik",
+    title: "Egyszerű folyamat",
+    steps: [
+      { title: "Érkezés és tervezés", body: "Megérkezünk az ingatlanhoz, és végigjárva eldöntjük, hol készüljenek a panorámák." },
+      { title: "Fotózás", body: "Elkészítjük a 360°-os felvételeket. 60 m²-ig nagyjából 1 óra, 120 m²-ig nagyjából 2 óra." },
+      { title: "Távozás", body: "Elpakolunk, a többit mi intézzük. A kész túra 48 órán belül nálad van." },
+    ],
+    note: "Egyedi méretű vagy típusú ingatlan esetén az ingatlan és az igényeid megismerése után becsüljük meg az időt.",
+    deliverTitle: "Amit kapsz",
+    deliverBody: "Egy 360°-os virtuális túra az ingatlanodról, amelyet linkkel és QR-kóddal bárkinek megoszthatsz.",
+    deliverAddon: "Kiegészítőként alaprajzot is készítünk. Az alaprajz tájékoztató jellegű, nem hivatalos felmérés.",
+  },
   portfolio: {
     eyebrow: "Munkáink",
     title: "Elkészült túrák",
