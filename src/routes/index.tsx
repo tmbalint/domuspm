@@ -158,6 +158,34 @@ function Site() {
           </div>
         </section>
 
+        {/* How it works */}
+        <section id="process" className="section">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <Eyebrow>{t.process.eyebrow}</Eyebrow>
+            <h2 className="mt-4 text-3xl sm:text-4xl">{t.process.title}</h2>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {t.process.steps.map((step, i) => (
+                <article key={step.title} className="rounded-sm border border-border bg-card p-8">
+                  <span className="eyebrow text-accent">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-4 text-xl">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 max-w-2xl text-sm text-muted-foreground">{t.process.note}</p>
+            <article className="mt-10 rounded-sm border border-border bg-card p-8">
+              <div className="flex items-start gap-4">
+                <ArchIcon className="mt-1 h-7 w-7 shrink-0 text-accent" />
+                <div className="space-y-2">
+                  <h3 className="text-xl">{t.process.deliverTitle}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{t.process.deliverBody}</p>
+                  <p className="text-xs text-accent">{t.process.deliverAddon}</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         {/* Pricing */}
         <section id="pricing" className="section">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">

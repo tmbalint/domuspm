@@ -64,6 +64,19 @@ export const hu = {
       { price: "Egyedi ár", size: "120 m² felett vagy nagyobb szálloda", cta: "Kérj egyedi ajánlatot" },
     ],
   },
+  process: {
+    eyebrow: "Hogyan működik",
+    title: "Egyszerű folyamat",
+    steps: [
+      { title: "Érkezés és tervezés", body: "Megérkezünk az ingatlanhoz, és végigjárva eldöntjük, hol készüljenek a panorámák." },
+      { title: "Fotózás", body: "Elkészítjük a 360°-os felvételeket. 60 m²-ig nagyjából 1 óra, 120 m²-ig nagyjából 2 óra." },
+      { title: "Távozás", body: "Elpakolunk, a többit mi intézzük. A kész túra 48 órán belül nálad van." },
+    ],
+    note: "Egyedi méretű vagy típusú ingatlan esetén az ingatlan és az igényeid megismerése után becsüljük meg az időt.",
+    deliverTitle: "Amit kapsz",
+    deliverBody: "Egy 360°-os virtuális túra az ingatlanodról, amelyet linkkel és QR-kóddal bárkinek megoszthatsz.",
+    deliverAddon: "Kiegészítőként alaprajzot is készítünk. Az alaprajz tájékoztató jellegű, nem hivatalos felmérés.",
+  },
   portfolio: {
     eyebrow: "Munkáink",
     title: "Elkészült túrák",
@@ -169,6 +182,19 @@ export const en: Dict = {
       { price: "29,990 HUF", size: "up to 120 m²", cta: "Get a Quote", featured: true },
       { price: "Custom quote", size: "above 120 m² or larger hotel", cta: "Contact us" },
     ],
+  },
+  process: {
+    eyebrow: "How it works",
+    title: "A simple process",
+    steps: [
+      { title: "Arrive and plan", body: "We arrive at the property, walk through it and decide where each panorama will be shot." },
+      { title: "Shoot", body: "We capture the 360° panoramas. Up to 60 m² takes about 1 hour, up to 120 m² about 2 hours." },
+      { title: "We leave, you wait", body: "We pack up and take care of the rest. Your finished tour is ready within 48 hours." },
+    ],
+    note: "For properties with an unusual size or type, we estimate the time once we know the property and your requirements.",
+    deliverTitle: "What you get",
+    deliverBody: "A 360° virtual tour of your property that you can share with anyone via a link and a QR code.",
+    deliverAddon: "An optional add-on: we can also produce a floor plan. The plan is indicative, not an official survey.",
   },
   portfolio: {
     eyebrow: "Portfolio",
