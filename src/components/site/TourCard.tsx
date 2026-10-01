@@ -9,7 +9,7 @@ export type Tour = {
 };
 
 export function TourCard({ tour, label, open }: { tour: Tour; label: string; open: string }) {
-  const card = (
+  return (
     <figure className="group overflow-hidden rounded-sm border border-border bg-card">
       <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
         <img
@@ -27,21 +27,22 @@ export function TourCard({ tour, label, open }: { tour: Tour; label: string; ope
           </span>
         </div>
       </div>
-      <figcaption className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 py-4">
+      <figcaption className="flex items-center justify-between gap-3 px-5 py-4">
         <div className="min-w-0">
           <p className="truncate font-display text-sm font-bold">{tour.name}</p>
           <p className="truncate text-xs text-muted-foreground">{tour.type}</p>
         </div>
-        <span className="eyebrow shrink-0 text-accent">{open}</span>
+        {tour.embedUrl && (
+          <a
+            href={tour.embedUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-sm border border-accent px-4 py-2 text-xs tracking-[0.18em] text-accent uppercase transition-colors hover:bg-accent/10"
+          >
+            {open}
+          </a>
+        )}
       </figcaption>
     </figure>
-  );
-
-  return tour.embedUrl ? (
-    <a href={tour.embedUrl} target="_blank" rel="noopener noreferrer" className="block">
-      {card}
-    </a>
-  ) : (
-    card
   );
 }
