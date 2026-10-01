@@ -9,7 +9,7 @@ export type Tour = {
 };
 
 export function TourCard({ tour, label, open }: { tour: Tour; label: string; open: string }) {
-  return (
+  const card = (
     <figure className="group overflow-hidden rounded-sm border border-border bg-card">
       <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
         <img
