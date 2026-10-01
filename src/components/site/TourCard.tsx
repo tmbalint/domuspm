@@ -36,4 +36,12 @@ export function TourCard({ tour, label, open }: { tour: Tour; label: string; ope
       </figcaption>
     </figure>
   );
+
+  return tour.embedUrl ? (
+    <a href={tour.embedUrl} target="_blank" rel="noopener noreferrer" className="block">
+      {card}
+    </a>
+  ) : (
+    card
+  );
 }
