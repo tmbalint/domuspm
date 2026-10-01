@@ -5,7 +5,7 @@ export type Tour = {
   type: string;
   image: string;
   /** Swap in a real 360° tour embed URL to replace the placeholder. */
-  embedUrl?: string;
+  embedUrl?: string | undefined;
 };
 
 export function TourCard({ tour, label, open }: { tour: Tour; label: string; open: string }) {
