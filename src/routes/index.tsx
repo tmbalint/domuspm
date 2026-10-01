@@ -78,7 +78,12 @@ function Site() {
   const tours: Tour[] = t.tours.items.map((item, i) => ({
     ...item,
     image: tourImages[i] ?? tourImages[0]!,
-    embedUrl: i === 0 ? "https://www.keypano.com/v/ahi3dctec6a8n0-1790271850.html" : undefined,
+    embedUrl:
+      i === 0
+        ? "https://www.keypano.com/v/ahi3dctec6a8n0-1790271850.html"
+        : i === 1
+          ? "https://www.keypano.com/v/b6b96733c9jbn5-1790784270.html"
+          : undefined,
   }));
 
   return (
