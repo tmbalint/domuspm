@@ -71,7 +71,7 @@ export const hu = {
     steps: [
       { title: "Érkezés és tervezés", body: "Megérkezünk az ingatlanhoz, és végigjárva eldöntjük, hol készüljenek a panorámák." },
       { title: "Fotózás", body: "Elkészítjük a 360°-os panorámákat. 60 m²-ig nagyjából 1 óra, 120 m²-ig nagyjából 2 óra." },
-      { title: "Távozás", body: "Elpakolunk, a többit mi intézzük. A kész túra 48 órán belül nálad van." },
+      { title: "Utómunka", body: "Távozás után, maximum 48 órán belül készen is van a virtuális séta." },
     ],
     note: "Egyedi méretű vagy típusú ingatlan esetén az ingatlan és az igényeid megismerése után becsüljük meg az időt.",
     deliverTitle: "Amit kapsz",
