@@ -236,19 +236,6 @@ function Site() {
           </div>
         </section>
 
-        {/* Portfolio */}
-        <section id="portfolio" className="section bg-secondary">
-          <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <Eyebrow>{t.portfolio.eyebrow}</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl">{t.portfolio.title}</h2>
-            <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.portfolio.note}</p>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
-              {tours.map((tour) => (
-                <TourCard key={`p-${tour.name}`} tour={tour} open={t.tours.open} />
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* About */}
         <section id="about" className="section bg-primary text-primary-foreground">

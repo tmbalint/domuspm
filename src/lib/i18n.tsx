@@ -9,7 +9,6 @@ export const hu = {
     tours: "Bemutató túrák",
     services: "Szolgáltatások",
     pricing: "Árak",
-    portfolio: "Munkáink",
     about: "Rólunk",
     testimonials: "Vélemények",
     contact: "Kapcsolat",
@@ -81,11 +80,6 @@ export const hu = {
     addonTitle: "Alaprajz",
     addonBody: "Kiegészítőként alaprajzot is készítünk. Az alaprajz tájékoztató jellegű, nem hivatalos felmérés.",
   },
-  portfolio: {
-    eyebrow: "Munkáink",
-    title: "Elkészült túrák",
-    note: "A galéria folyamatosan bővül.",
-  },
   about: {
     eyebrow: "Rólunk",
     title: "Mi vagyunk a Domus Property Media.",
@@ -133,7 +127,6 @@ export const en: Dict = {
     tours: "Featured tours",
     services: "Services",
     pricing: "Pricing",
-    portfolio: "Portfolio",
     about: "About",
     testimonials: "Testimonials",
     contact: "Contact",
@@ -204,11 +197,6 @@ export const en: Dict = {
     addonTag: "Add-on",
     addonTitle: "Floor plan",
     addonBody: "Optional add-on: we can also produce a floor plan. The plan is indicative, not an official survey.",
-  },
-  portfolio: {
-    eyebrow: "Portfolio",
-    title: "Completed tours",
-    note: "The gallery grows with every project.",
   },
   about: {
     eyebrow: "About",
