@@ -33,7 +33,6 @@ export function Header() {
     { href: "#tours", label: t.nav.tours },
     { href: "#services", label: t.nav.services },
     { href: "#pricing", label: t.nav.pricing },
-    { href: "#portfolio", label: t.nav.portfolio },
     { href: "#about", label: t.nav.about },
     { href: "#testimonials", label: t.nav.testimonials },
   ];
