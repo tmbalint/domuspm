@@ -4,11 +4,11 @@ export type Tour = {
   name: string;
   type: string;
   image: string;
-  /** Swap in a real 360° tour embed URL to replace the placeholder. */
-  embedUrl?: string | undefined;
+  /** Keypano tour link — opened in a new tab (Keypano blocks iframe embedding). */
+  url?: string | undefined;
 };
 
-export function TourCard({ tour, label, open }: { tour: Tour; label: string; open: string }) {
+export function TourCard({ tour, open }: { tour: Tour; open: string }) {
   return (
     <figure className="group overflow-hidden rounded-sm border border-border bg-card">
       <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
@@ -23,7 +23,7 @@ export function TourCard({ tour, label, open }: { tour: Tour; label: string; ope
         <div className="absolute inset-0 grid place-items-center bg-primary/45">
           <span className="flex flex-col items-center gap-2 text-primary-foreground">
             <Compass className="h-8 w-8 text-accent" />
-            <span className="eyebrow">{label}</span>
+            <span className="eyebrow">360°</span>
           </span>
         </div>
       </div>
@@ -32,9 +32,9 @@ export function TourCard({ tour, label, open }: { tour: Tour; label: string; ope
           <p className="truncate font-display text-sm font-bold">{tour.name}</p>
           <p className="truncate text-xs text-muted-foreground">{tour.type}</p>
         </div>
-        {tour.embedUrl && (
+        {tour.url && (
           <a
-            href={tour.embedUrl}
+            href={tour.url}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 rounded-sm border border-accent px-4 py-2 text-xs tracking-[0.18em] text-accent uppercase transition-colors hover:bg-accent/10"
