@@ -26,13 +26,11 @@ export const hu = {
   tours: {
     eyebrow: "Kiemelt túrák",
     title: "Nézz körbe",
-    note: "A beágyazott túrák helye — hamarosan élő linkekkel.",
-    placeholder: "360° túra beágyazás helye",
-    open: "Túra megnyitása",
+    note: "A túrák új lapon nyílnak meg.",
+    open: "Túra megtekintése",
     items: [
-      { name: "Belvárosi apartman", type: "Airbnb · 54 m²" },
-      { name: "Kávézó, VII. kerület", type: "Vendéglátás" },
-      { name: "Butik üzlet", type: "Kiskereskedelem" },
+      { name: "Külvárosi lakás", type: "53 m²" },
+      { name: "Kertvárosi családi ház", type: "120+ m²" },
     ],
   },
   services: {
@@ -152,13 +150,11 @@ export const en: Dict = {
   tours: {
     eyebrow: "Featured tours",
     title: "Step inside",
-    note: "Tour embeds go here — live links coming soon.",
-    placeholder: "360° tour embed placeholder",
-    open: "Open tour",
+    note: "Tours open in a new tab.",
+    open: "View tour",
     items: [
-      { name: "Downtown apartment", type: "Airbnb · 54 m²" },
-      { name: "Café, District VII", type: "Hospitality" },
-      { name: "Boutique shop", type: "Retail" },
+      { name: "Suburban apartment", type: "53 m²" },
+      { name: "Garden-suburb family house", type: "120+ m²" },
     ],
   },
   services: {

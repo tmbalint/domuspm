@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin, Ruler } from "lucide-react";
 
 import heroImg from "@/assets/hero.jpg";
-import cafeImg from "@/assets/tour-cafe.jpg";
 import apartmentImg from "@/assets/tour-apartment.jpg";
-import shopImg from "@/assets/tour-shop.jpg";
 
 import { LangProvider, useLang } from "@/lib/i18n";
 import { Header } from "@/components/site/Header";
@@ -61,8 +59,17 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-// Swap `image` for `embedUrl` once real 360° tour links are available.
-const tourImages = [apartmentImg, cafeImg, shopImg];
+// ─── Tour cards ─────────────────────────────────────────────────────────────
+// Each card links out to its Keypano tour in a new tab (Keypano blocks
+// embedding, so nothing is iframed here).
+// Covers below are placeholders: drop the real photos into src/assets/ and
+// swap these two lines. Keep the order matched with `tours.items` in
+// src/lib/i18n.tsx — first entry = first card.
+const tourLinks = [
+  "https://www.keypano.com/v/b6b96733c9jbn5-1790784270.html",
+  "https://www.keypano.com/v/8e6pad67xae2x2-1792699797.html",
+];
+const tourCovers = [apartmentImg, heroImg];
 
 function Page() {
   return (
@@ -77,13 +84,8 @@ function Site() {
 
   const tours: Tour[] = t.tours.items.map((item, i) => ({
     ...item,
-    image: tourImages[i] ?? tourImages[0]!,
-    embedUrl:
-      i === 0
-        ? "https://www.keypano.com/v/ahi3dctec6a8n0-1790271850.html"
-        : i === 1
-          ? "https://www.keypano.com/v/b6b96733c9jbn5-1790784270.html"
-          : undefined,
+    image: tourCovers[i] ?? tourCovers[0]!,
+    url: tourLinks[i],
   }));
 
   return (
@@ -130,14 +132,9 @@ function Site() {
             <Eyebrow>{t.tours.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.tours.title}</h2>
             <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.tours.note}</p>
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {tours.slice(0, 3).map((tour) => (
-                <TourCard
-                  key={tour.name}
-                  tour={tour}
-                  label={t.tours.placeholder}
-                  open={t.tours.open}
-                />
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {tours.map((tour) => (
+                <TourCard key={tour.name} tour={tour} open={t.tours.open} />
               ))}
             </div>
           </div>
@@ -245,14 +242,9 @@ function Site() {
             <Eyebrow>{t.portfolio.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.portfolio.title}</h2>
             <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.portfolio.note}</p>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {tours.map((tour) => (
-                <TourCard
-                  key={`p-${tour.name}`}
-                  tour={tour}
-                  label={t.tours.placeholder}
-                  open={t.tours.open}
-                />
+                <TourCard key={`p-${tour.name}`} tour={tour} open={t.tours.open} />
               ))}
             </div>
           </div>
