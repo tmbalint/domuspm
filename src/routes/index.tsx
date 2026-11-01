@@ -289,7 +289,7 @@ function ContactSection() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", type: "0", size: "0", squaremeter: "", city: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", type: "0", size: "0", squaremeter: "", city: "", message: "" });
 
   const update = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -323,7 +323,8 @@ function ContactSection() {
         body: JSON.stringify({
           access_key: "6c4c39e7-b049-4a1c-b614-4b57e8aa4432",
           name: form.name,
-          email: form.email,
+          phone: form.phone,
+          ...(form.email ? { email: form.email } : {}),
           type: selectedType,
           size: selectedSize,
           ...(form.size === "2" ? { squaremeter: form.squaremeter } : {}),
@@ -372,16 +373,31 @@ function ContactSection() {
                 className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
               />
             </label>
-            <label className="grid gap-2">
-              <span className="eyebrow text-muted-foreground">{t.contact.email}</span>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={update("email")}
-                className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
-              />
-            </label>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="eyebrow text-muted-foreground">{t.contact.phone}</span>
+                <input
+                  type="tel"
+                  required
+                  inputMode="tel"
+                  autoComplete="tel"
+                  pattern="[+0-9()\-\s/.]{6,}"
+                  value={form.phone}
+                  onChange={update("phone")}
+                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                />
+              </label>
+              <label className="grid gap-2">
+                <span className="eyebrow text-muted-foreground">{t.contact.email}</span>
+                <input
+                  type="email"
+                  autoComplete="email"
+                  value={form.email}
+                  onChange={update("email")}
+                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                />
+              </label>
+            </div>
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.type}</span>
               <select
