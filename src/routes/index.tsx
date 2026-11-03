@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin, Ruler } from "lucide-react";
 
@@ -6,6 +6,8 @@ import heroImg from "@/assets/hero.jpg";
 import apartmentImg from "@/assets/tour-apartment.jpg";
 
 import { LangProvider, useLang } from "@/lib/i18n";
+import { PLAN_IDS, planLabel, type PlanId } from "@/lib/plans";
+
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TourCard, type Tour } from "@/components/site/TourCard";
@@ -13,9 +15,14 @@ import { ArchDivider, ArchIcon, Eyebrow } from "@/components/site/Arch";
 
 const SITE_URL = "https://domuspropertymedia.lovable.app";
 
+type IndexSearch = { plan?: PlanId };
+
 export const Route = createFileRoute("/")({
   component: Page,
   staticData: { sitemap: true },
+  validateSearch: (search: Record<string, unknown>): IndexSearch =>
+    search.plan === "partner" || search.plan === "pro" ? { plan: search.plan } : {},
+
   head: () => ({
     meta: [
       { title: "Domus Property Media — 360° Virtual Tours in Budapest" },
@@ -288,7 +295,9 @@ function Site() {
 
 function ContactSection() {
   const { t } = useLang();
+  const { plan } = Route.useSearch();
   const [sent, setSent] = useState(false);
+
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", type: "0", size: "0", squaremeter: "", city: "", floorplan: "0", message: "" });
@@ -334,6 +343,8 @@ function ContactSection() {
           ...(form.size === "3" ? { squaremeter: form.squaremeter } : {}),
           city: form.city,
           floorplan: selectedFloorplan,
+          ...(plan ? { plan: planLabel(t, plan) } : {}),
+
 
           message: form.message,
           subject: "New inquiry from domustours.com",
@@ -370,6 +381,23 @@ function ContactSection() {
 
         <form className="rounded-sm border border-border bg-card p-6 sm:p-8" onSubmit={handleSubmit}>
           <div className="grid gap-5">
+            {plan && (
+              <div className="flex flex-wrap items-center justify-between gap-3 rounded-sm border border-accent/40 bg-accent/5 px-4 py-3">
+                <p className="text-sm">
+                  <span className="eyebrow block text-muted-foreground">{t.contact.planLabel}</span>
+                  <span className="font-medium text-accent">{planLabel(t, plan)}</span>
+                </p>
+                <span className="flex shrink-0 gap-4 text-xs text-muted-foreground">
+                  <Link to="/packages" className="hover:text-accent">
+                    {t.contact.planChange}
+                  </Link>
+                  <Link to="/" className="hover:text-accent">
+                    {t.contact.planRemove}
+                  </Link>
+                </span>
+              </div>
+            )}
+
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.name}</span>
               <input
