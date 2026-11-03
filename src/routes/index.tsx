@@ -212,7 +212,7 @@ function Site() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {t.pricing.tiers.map((tier) => {
                 return (
                   <article
@@ -296,7 +296,7 @@ function ContactSection() {
 
   const updateSize = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const size = e.target.value;
-    setForm((prev) => ({ ...prev, size, squaremeter: size === "2" ? prev.squaremeter : "" }));
+    setForm((prev) => ({ ...prev, size, squaremeter: size === "3" ? prev.squaremeter : "" }));
   };
 
   const updateSquaremeter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -313,7 +313,7 @@ function ContactSection() {
     try {
       const selectedType = t.contact.typeOptions[Number(form.type)] ?? t.contact.typeOptions[0];
       const selectedSize = t.contact.sizeOptions[Number(form.size)] ?? t.contact.sizeOptions[0];
-      if (form.size === "2" && (!/^\d+$/.test(form.squaremeter) || Number(form.squaremeter) < 121)) {
+      if (form.size === "3" && (!/^\d+$/.test(form.squaremeter) || Number(form.squaremeter) < 206)) {
         setError(true);
         return;
       }
@@ -327,7 +327,7 @@ function ContactSection() {
           ...(form.email ? { email: form.email } : {}),
           type: selectedType,
           size: selectedSize,
-          ...(form.size === "2" ? { squaremeter: form.squaremeter } : {}),
+          ...(form.size === "3" ? { squaremeter: form.squaremeter } : {}),
           city: form.city,
           message: form.message,
           subject: "New inquiry from domustours.com",
@@ -434,12 +434,12 @@ function ContactSection() {
                 />
               </label>
             </div>
-            {form.size === "2" && (
+            {form.size === "3" && (
               <label className="grid gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.squaremeter}</span>
                 <input
                   type="number"
-                  min={121}
+                  min={206}
                   step={1}
                   inputMode="numeric"
                   required
