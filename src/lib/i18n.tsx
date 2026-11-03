@@ -9,7 +9,9 @@ export const hu = {
     tours: "Bemutató túrák",
     services: "Szolgáltatások",
     pricing: "Árak",
+    packages: "Havi csomagok",
     about: "Rólunk",
+
     testimonials: "Vélemények",
     contact: "Kapcsolat",
   },
@@ -83,8 +85,49 @@ export const hu = {
     addonPrice: "9 990 Ft",
 
   },
+  packages: {
+    title: "Havi csomagok",
+    subtitle: "Rendszeres megbízásokhoz, kedvezőbb áron. Havonta mondható, kötöttség nélkül.",
+    plans: [
+      {
+        name: "Partner",
+        price: "69 990 Ft / hónap",
+        features: [
+          "4 ingatlan havonta",
+          "140 m²-ig az árban benne van",
+          "140-205 m² között +9 990 Ft / ingatlan",
+          "48 órás átfutás",
+        ],
+        extrasTitle: "Minden további ingatlan (4 felett):",
+        extras: ["70 m²-ig: 15 990 Ft", "140 m²-ig: 23 990 Ft", "205 m²-ig: 31 990 Ft"],
+        cta: "Árajánlatot kérek",
+      },
+      {
+        name: "Pro",
+        price: "129 990 Ft / hónap",
+        features: [
+          "8 ingatlan havonta",
+          "140 m²-ig az árban benne van",
+          "140-205 m² között +9 990 Ft / ingatlan",
+          "24 órás átfutás",
+          "Elsőbbségi időpontfoglalás",
+          "Saját logó a túrán és az alaprajzon, külön díj nélkül",
+        ],
+        extrasTitle: "Minden további ingatlan (8 felett):",
+        extras: ["70 m²-ig: 15 990 Ft", "140 m²-ig: 23 990 Ft", "205 m²-ig: 31 990 Ft"],
+        cta: "Árajánlatot kérek",
+      },
+    ],
+    notes: [
+      "205 m² felett egyedi árajánlat, előfizetőknek kedvezménnyel.",
+      "A fel nem használt alkalmak nem vihetők át a következő hónapra.",
+      "Havi számlázás, bármikor lemondható.",
+      "A kiszállás a fő működési területen belül (Budapest és környéke, Mosonmagyaróvár-Győr térség) az árban benne van.",
+    ],
+  },
   about: {
     eyebrow: "Rólunk",
+
     title: "Mi vagyunk a Domus Property Media.",
     paragraphs: [
       "Egy ingatlan hirdetéséhez ma már nem elég néhány fotó és egy leírás. A vevők százával görgetik a hirdetéseket, és másodpercek alatt döntenek. Látni akarják a teret, átérezni az elrendezést, és bízni akarnak abban, amit látnak, még mielőtt felhívnák a hirdetőt.",
@@ -119,6 +162,11 @@ export const hu = {
     floorplan: "Kérnek alaprajzot?",
     floorplanOptions: ["Nem kérek", "Igen, kérek"],
     floorplanNote: "Az alaprajz nem része a túra árnak: külön 9 990 Ft.",
+    planLabel: "Kiválasztott csomag",
+    planChange: "Csomag váltása",
+    planRemove: "Eltávolítás",
+
+
 
     message: "Üzenet",
     submit: "Küldés",
@@ -135,7 +183,9 @@ export const en: Dict = {
     tours: "Featured tours",
     services: "Services",
     pricing: "Pricing",
+    packages: "Monthly packages",
     about: "About",
+
     testimonials: "Testimonials",
     contact: "Contact",
   },
@@ -209,8 +259,49 @@ export const en: Dict = {
     addonPrice: "9,990 HUF",
 
   },
+  packages: {
+    title: "Monthly packages",
+    subtitle: "For regular work, at a better rate. Monthly, cancel anytime.",
+    plans: [
+      {
+        name: "Partner",
+        price: "69,990 HUF / month",
+        features: [
+          "4 properties a month",
+          "Included up to 140 m²",
+          "140-205 m²: +9,990 HUF per property",
+          "48-hour turnaround",
+        ],
+        extrasTitle: "Every extra property (beyond 4):",
+        extras: ["up to 70 m²: 15,990 HUF", "up to 140 m²: 23,990 HUF", "up to 205 m²: 31,990 HUF"],
+        cta: "Request a quote",
+      },
+      {
+        name: "Pro",
+        price: "129,990 HUF / month",
+        features: [
+          "8 properties a month",
+          "Included up to 140 m²",
+          "140-205 m²: +9,990 HUF per property",
+          "24-hour turnaround",
+          "Priority booking",
+          "Your own logo on the tour and the floor plan, at no extra charge",
+        ],
+        extrasTitle: "Every extra property (beyond 8):",
+        extras: ["up to 70 m²: 15,990 HUF", "up to 140 m²: 23,990 HUF", "up to 205 m²: 31,990 HUF"],
+        cta: "Request a quote",
+      },
+    ],
+    notes: [
+      "Above 205 m² we quote individually, with a discount for subscribers.",
+      "Unused properties do not carry over to the next month.",
+      "Billed monthly, cancel anytime.",
+      "Travel inside our main area (Budapest and surroundings, Mosonmagyaróvár-Győr region) is included.",
+    ],
+  },
   about: {
     eyebrow: "About",
+
     title: "We're Domus Property Media.",
     paragraphs: [
       "Advertising a property today takes more than a few photos and a description. Buyers scroll past hundreds of listings and decide in seconds. They want to see the space, feel the layout and trust what they're looking at before they pick up the phone.",
@@ -245,6 +336,11 @@ export const en: Dict = {
     floorplan: "Need a floor plan?",
     floorplanOptions: ["No, thanks", "Yes, please"],
     floorplanNote: "The floor plan isn't included in the tour price: it's an extra 9,990 HUF.",
+    planLabel: "Selected plan",
+    planChange: "Change plan",
+    planRemove: "Remove",
+
+
 
     message: "Message",
     submit: "Send",
