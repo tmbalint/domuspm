@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 export type Lang = "hu" | "en";
 
-type Dict = typeof hu;
+export type Dict = typeof hu;
 
 export const hu = {
   nav: {
