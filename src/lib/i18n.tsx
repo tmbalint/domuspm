@@ -57,12 +57,13 @@ export const hu = {
   pricing: {
     eyebrow: "Árak",
     title: "Árazás",
-    note: "Az árak tartalmazzák a helyszíni fotózást, a túra összeállítását és a beágyazást. Nagyobb szállodaterület esetén egyedi árat adunk.",
+    note: "Az árak tartalmazzák a helyszíni fotózást, a túra összeállítását és a beágyazást. 205 m² felett egyedi árat adunk.",
     badge: "48 órás átfutás",
     tiers: [
-      { price: "19 990 Ft", size: "60 m²-ig", cta: "Foglalj túrát" },
-      { price: "29 990 Ft", size: "120 m²-ig", cta: "Foglalj túrát" },
-      { price: "Egyedi ár", size: "120 m² felett vagy nagyobb szálloda", cta: "Kérj egyedi ajánlatot" },
+      { price: "19 990 Ft", size: "70 m²-ig", cta: "Foglalj túrát" },
+      { price: "29 990 Ft", size: "140 m²-ig", cta: "Foglalj túrát" },
+      { price: "39 990 Ft", size: "205 m²-ig", cta: "Foglalj túrát" },
+      { price: "Egyedi ár", size: "205 m² felett", cta: "Kérj egyedi ajánlatot" },
     ],
   },
   process: {
@@ -110,7 +111,7 @@ export const hu = {
     type: "Ingatlan / üzlet típusa",
     typeOptions: ["Airbnb / rövid távú bérlés", "Eladó vagy kiadó ingatlan", "Kávézó / étterem", "Üzlet / iroda", "Szálloda / lounge", "Egyéb"],
     size: "Méret",
-    sizeOptions: ["60 m²-ig", "120 m²-ig", "120 m² felett"],
+    sizeOptions: ["70 m²-ig", "140 m²-ig", "205 m²-ig", "205 m² felett"],
     squaremeter: "Négyzetméter (m²)",
     city: "Város",
     message: "Üzenet",
@@ -176,12 +177,13 @@ export const en: Dict = {
   pricing: {
     eyebrow: "Rates",
     title: "Pricing",
-    note: "Includes the on-site shoot, tour production and embedding. Larger hotel areas are priced on request.",
+    note: "Includes the on-site shoot, tour production and embedding. Above 205 m² we price on request.",
     badge: "48-hour turnaround",
     tiers: [
-      { price: "19,990 HUF", size: "up to 60 m²", cta: "Book Your Tour" },
-      { price: "29,990 HUF", size: "up to 120 m²", cta: "Book Your Tour" },
-      { price: "Custom quote", size: "above 120 m² or larger hotel", cta: "Contact us" },
+      { price: "19,990 HUF", size: "up to 70 m²", cta: "Book Your Tour" },
+      { price: "29,990 HUF", size: "up to 140 m²", cta: "Book Your Tour" },
+      { price: "39,990 HUF", size: "up to 205 m²", cta: "Book Your Tour" },
+      { price: "Custom quote", size: "above 205 m²", cta: "Contact us" },
     ],
   },
   process: {
@@ -229,7 +231,7 @@ export const en: Dict = {
     type: "Property / business type",
     typeOptions: ["Airbnb / short-term rental", "Property for sale or rent", "Café / restaurant", "Shop / office", "Hotel / lounge", "Other"],
     size: "Size",
-    sizeOptions: ["up to 60 m²", "up to 120 m²", "above 120 m²"],
+    sizeOptions: ["up to 70 m²", "up to 140 m²", "up to 205 m²", "above 205 m²"],
     squaremeter: "Square meters (m²)",
     city: "City",
     message: "Message",
