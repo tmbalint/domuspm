@@ -192,6 +192,8 @@ function Site() {
                   <p className="eyebrow text-accent">{t.process.addonTag}</p>
                   <h3 className="text-xl">{t.process.addonTitle}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{t.process.addonBody}</p>
+                  <p className="pt-1 text-sm font-medium text-accent">{t.process.addonPrice}</p>
+
                 </div>
               </div>
             </article>
@@ -289,7 +291,7 @@ function ContactSection() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", email: "", type: "0", size: "0", squaremeter: "", city: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", type: "0", size: "0", squaremeter: "", city: "", floorplan: "0", message: "" });
 
   const update = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -313,6 +315,8 @@ function ContactSection() {
     try {
       const selectedType = t.contact.typeOptions[Number(form.type)] ?? t.contact.typeOptions[0];
       const selectedSize = t.contact.sizeOptions[Number(form.size)] ?? t.contact.sizeOptions[0];
+      const selectedFloorplan = t.contact.floorplanOptions[Number(form.floorplan)] ?? t.contact.floorplanOptions[0];
+
       if (form.size === "3" && (!/^\d+$/.test(form.squaremeter) || Number(form.squaremeter) < 206)) {
         setError(true);
         return;
@@ -329,6 +333,8 @@ function ContactSection() {
           size: selectedSize,
           ...(form.size === "3" ? { squaremeter: form.squaremeter } : {}),
           city: form.city,
+          floorplan: selectedFloorplan,
+
           message: form.message,
           subject: "New inquiry from domustours.com",
         }),
@@ -456,7 +462,26 @@ function ContactSection() {
               </label>
             )}
             <label className="grid gap-2">
+              <span className="eyebrow text-muted-foreground">{t.contact.floorplan}</span>
+              <select
+                required
+                value={form.floorplan}
+                onChange={update("floorplan")}
+                className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+              >
+                {t.contact.floorplanOptions.map((o, i) => (
+                  <option key={o} value={String(i)}>{o}</option>
+                ))}
+              </select>
+            </label>
+            {form.floorplan === "1" && (
+              <p className="rounded-sm border border-accent/40 bg-accent/5 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+                {t.contact.floorplanNote}
+              </p>
+            )}
+            <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.message}</span>
+
               <textarea
                 rows={4}
                 value={form.message}
