@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
           telephone: "+36705424017",
           email: "timarbalint60@gmail.com",
           image: `${SITE_URL}/favicon.png`,
-          priceRange: "19,990 HUF - 29,990 HUF",
+          priceRange: "19,990 HUF - 39,990 HUF",
           areaServed: "Hungary",
           address: {
             "@type": "PostalAddress",
