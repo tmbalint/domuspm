@@ -28,3 +28,14 @@ test("booking form size options match the pricing bands, with the last one requi
   expect(hu.contact.sizeOptions.at(-1)).toBe("205 m² felett");
   expect(hu.contact.sizeOptions.slice(0, 3).every((o) => o.endsWith("m²-ig"))).toBe(true);
 });
+
+// Floor plan add-on price stated by the owner: 9 990 Ft, on top of the tour price.
+test("floor plan add-on costs 9 990 Ft and is offered in the booking form", () => {
+  expect(hu.process.addonPrice).toBe("9 990 Ft");
+  expect(en.process.addonPrice).toBe("9,990 HUF");
+  expect(hu.contact.floorplanOptions).toEqual(["Nem kérek", "Igen, kérek"]);
+  expect(en.contact.floorplanOptions).toEqual(["No, thanks", "Yes, please"]);
+  expect(hu.contact.floorplanNote).toContain("9 990 Ft");
+  expect(en.contact.floorplanNote).toContain("9,990 HUF");
+});
+
