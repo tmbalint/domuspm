@@ -20,8 +20,10 @@ type IndexSearch = { plan?: PlanId };
 export const Route = createFileRoute("/")({
   component: Page,
   staticData: { sitemap: true },
-  validateSearch: (search: Record<string, unknown>): IndexSearch =>
-    search.plan === "partner" || search.plan === "pro" ? { plan: search.plan } : {},
+  validateSearch: (search: Record<string, unknown>): IndexSearch => {
+    const plan = search["plan"];
+    return plan === "partner" || plan === "pro" ? { plan } : {};
+  },
 
   head: () => ({
     meta: [
