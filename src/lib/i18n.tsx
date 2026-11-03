@@ -80,6 +80,8 @@ export const hu = {
     addonTag: "Kiegészítő",
     addonTitle: "Alaprajz",
     addonBody: "Kiegészítőként alaprajzot is készítünk. Az alaprajz tájékoztató jellegű, nem hivatalos felmérés.",
+    addonPrice: "9 990 Ft",
+
   },
   about: {
     eyebrow: "Rólunk",
@@ -114,6 +116,10 @@ export const hu = {
     sizeOptions: ["70 m²-ig", "140 m²-ig", "205 m²-ig", "205 m² felett"],
     squaremeter: "Négyzetméter (m²)",
     city: "Város",
+    floorplan: "Kérnek alaprajzot?",
+    floorplanOptions: ["Nem kérek", "Igen, kérek"],
+    floorplanNote: "Az alaprajz nem része a túra árnak: külön 9 990 Ft.",
+
     message: "Üzenet",
     submit: "Küldés",
     sent: "Köszönjük, hamarosan válaszolunk.",
@@ -200,6 +206,8 @@ export const en: Dict = {
     addonTag: "Add-on",
     addonTitle: "Floor plan",
     addonBody: "Optional add-on: we can also produce a floor plan. The plan is indicative, not an official survey.",
+    addonPrice: "9,990 HUF",
+
   },
   about: {
     eyebrow: "About",
@@ -234,6 +242,10 @@ export const en: Dict = {
     sizeOptions: ["up to 70 m²", "up to 140 m²", "up to 205 m²", "above 205 m²"],
     squaremeter: "Square meters (m²)",
     city: "City",
+    floorplan: "Need a floor plan?",
+    floorplanOptions: ["No, thanks", "Yes, please"],
+    floorplanNote: "The floor plan isn't included in the tour price: it's an extra 9,990 HUF.",
+
     message: "Message",
     submit: "Send",
     sent: "Thank you — we'll be in touch shortly.",
