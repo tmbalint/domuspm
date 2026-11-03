@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { en, hu } from "./i18n";
+import { en, hu } from "./src/lib/i18n";
 
 // Pricing rules stated by the owner: 19,990 up to 70 m², 29,990 up to 140 m²,
 // 39,990 up to 205 m², custom quote above 205 m².
