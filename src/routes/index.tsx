@@ -6,6 +6,7 @@ import heroImg from "@/assets/hero.jpg";
 import apartmentImg from "@/assets/tour-apartment.jpg";
 
 import { LangProvider, useLang } from "@/lib/i18n";
+import { PlanCards } from "@/components/site/PlanCards";
 import { PLAN_IDS, planLabel, type PlanId } from "@/lib/plans";
 
 import { Header } from "@/components/site/Header";
@@ -249,6 +250,18 @@ function Site() {
 
 
         {/* About */}
+        <section id="packages" className="section bg-secondary">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl">{t.packages.title}</h2>
+              <p className="mt-4 text-muted-foreground">{t.packages.subtitle}</p>
+            </div>
+            <div className="mt-12">
+              <PlanCards />
+            </div>
+          </div>
+        </section>
+
         <section id="about" className="section bg-primary text-primary-foreground">
           <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
             <ArchIcon className="mx-auto h-9 w-9 text-accent" />
@@ -390,9 +403,9 @@ function ContactSection() {
                   <span className="font-medium text-accent">{planLabel(t, plan)}</span>
                 </p>
                 <span className="flex shrink-0 gap-4 text-xs text-muted-foreground">
-                  <Link to="/packages" className="hover:text-accent">
+                  <a href="#packages" className="hover:text-accent">
                     {t.contact.planChange}
-                  </Link>
+                  </a>
                   <Link to="/" className="hover:text-accent">
                     {t.contact.planRemove}
                   </Link>
