@@ -15,3 +15,11 @@ export function planLabel(t: Dict, id: PlanId): string {
   const plan = t.packages.plans[PLAN_IDS.indexOf(id)];
   return plan ? `${plan.name} · ${plan.price}` : id;
 }
+
+/**
+ * Monthly packages already fix the covered size and include the floor plan,
+ * so the booking form skips those two questions once a plan is chosen.
+ */
+export function hidesTourDetails(plan: PlanId | undefined): boolean {
+  return plan !== undefined;
+}

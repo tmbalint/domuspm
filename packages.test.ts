@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 
 import { en, hu } from "./src/lib/i18n";
-import { PLAN_IDS } from "./src/lib/plans";
+import { PLAN_IDS, hidesTourDetails } from "./src/lib/plans";
 
 // Monthly packages stated by the owner: Partner 69,990 Ft/month (4 properties),
 // Pro 129,990 Ft/month (8 properties); extra properties 15,990 / 23,990 / 31,990 Ft.
@@ -35,6 +35,12 @@ test("English packages mirror the Hungarian ones one to one", () => {
     expect(plan.extras.length).toBe(hu.packages.plans[i]!.extras.length);
   });
   expect(en.packages.plans.map((p) => p.price)).toEqual(["69,990 HUF / month", "129,990 HUF / month"]);
+});
+
+test("a chosen monthly plan hides the size and floor plan questions", () => {
+  expect(hidesTourDetails(undefined)).toBe(false);
+  expect(hidesTourDetails("partner")).toBe(true);
+  expect(hidesTourDetails("pro")).toBe(true);
 });
 
 test("both languages carry the four terms under the cards", () => {
