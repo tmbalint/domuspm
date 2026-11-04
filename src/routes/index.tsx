@@ -424,7 +424,7 @@ function ContactSection() {
               />
             </label>
             <div className="grid gap-5 sm:grid-cols-2">
-              <label className="grid gap-2">
+              <label className="grid min-w-0 gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.phone}</span>
                 <input
                   type="tel"
@@ -434,17 +434,17 @@ function ContactSection() {
                   pattern="[+0-9()\-\s/.]{6,}"
                   value={form.phone}
                   onChange={update("phone")}
-                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                  className="min-w-0 rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
                 />
               </label>
-              <label className="grid gap-2">
+              <label className="grid min-w-0 gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.email}</span>
                 <input
                   type="email"
                   autoComplete="email"
                   value={form.email}
                   onChange={update("email")}
-                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                  className="min-w-0 rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
                 />
               </label>
             </div>
@@ -463,7 +463,7 @@ function ContactSection() {
             </label>
             <div className={hasPlan ? "grid gap-5" : "grid gap-5 sm:grid-cols-2"}>
               {!hasPlan && (
-                <label className="grid gap-2">
+                <label className="grid min-w-0 gap-2">
                   <span className="eyebrow text-muted-foreground">{t.contact.size}</span>
                   <select
                     required
@@ -477,12 +477,12 @@ function ContactSection() {
                   </select>
                 </label>
               )}
-              <label className="grid gap-2">
+              <label className="grid min-w-0 gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.city}</span>
                 <input
                   value={form.city}
                   onChange={update("city")}
-                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                  className="min-w-0 rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
                 />
               </label>
             </div>
