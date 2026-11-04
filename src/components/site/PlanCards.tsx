@@ -24,13 +24,7 @@ export function PlanCards() {
                     }
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <span
-                        className={
-                          featured
-                            ? "eyebrow rounded-sm bg-accent px-3 py-1 text-accent-foreground"
-                            : "eyebrow text-accent"
-                        }
-                      >
+                      <span className="eyebrow rounded-sm bg-accent px-3 py-1 text-accent-foreground">
                         {plan.name}
                       </span>
                       <ArchIcon className="h-6 w-6 shrink-0 text-accent" />
@@ -38,7 +32,9 @@ export function PlanCards() {
 
                     <p className="mt-6 font-display text-3xl font-bold">{plan.price}</p>
 
-                    <ul className="mt-6 space-y-3">
+                    {/* flex-1 keeps the extras block and the button at the same
+                        height in both cards, whatever the feature count. */}
+                    <ul className="mt-6 flex-1 space-y-3">
                       {plan.features.map((feature) => (
                         <li
                           key={feature}
@@ -70,7 +66,7 @@ export function PlanCards() {
                         to="/"
                         search={{ plan: id }}
                         hash="contact"
-                        className={featured ? "btn-gold w-full" : "btn-outline-gold w-full"}
+                        className="btn-gold w-full"
                       >
                         {plan.cta}
                       </Link>
