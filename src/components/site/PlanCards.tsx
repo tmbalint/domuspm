@@ -66,7 +66,7 @@ export function PlanCards() {
                         to="/"
                         search={{ plan: id }}
                         hash="contact"
-                        className={featured ? "btn-gold w-full" : "btn-outline-gold w-full"}
+                        className="btn-gold w-full"
                       >
                         {plan.cta}
                       </Link>
