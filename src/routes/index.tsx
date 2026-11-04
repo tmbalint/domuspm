@@ -7,7 +7,7 @@ import apartmentImg from "@/assets/tour-apartment.jpg";
 
 import { LangProvider, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
-import { PLAN_IDS, planLabel, type PlanId } from "@/lib/plans";
+import { PLAN_IDS, hidesTourDetails, planLabel, type PlanId } from "@/lib/plans";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -311,6 +311,7 @@ function Site() {
 function ContactSection() {
   const { t } = useLang();
   const { plan } = Route.useSearch();
+  const hasPlan = hidesTourDetails(plan);
   const [sent, setSent] = useState(false);
 
   const [error, setError] = useState(false);
@@ -341,7 +342,7 @@ function ContactSection() {
       const selectedSize = t.contact.sizeOptions[Number(form.size)] ?? t.contact.sizeOptions[0];
       const selectedFloorplan = t.contact.floorplanOptions[Number(form.floorplan)] ?? t.contact.floorplanOptions[0];
 
-      if (form.size === "3" && (!/^\d+$/.test(form.squaremeter) || Number(form.squaremeter) < 206)) {
+      if (!hasPlan && form.size === "3" && (!/^\d+$/.test(form.squaremeter) || Number(form.squaremeter) < 206)) {
         setError(true);
         return;
       }
@@ -354,10 +355,10 @@ function ContactSection() {
           phone: form.phone,
           ...(form.email ? { email: form.email } : {}),
           type: selectedType,
-          size: selectedSize,
-          ...(form.size === "3" ? { squaremeter: form.squaremeter } : {}),
+          ...(hasPlan ? {} : { size: selectedSize }),
+          ...(hasPlan || form.size !== "3" ? {} : { squaremeter: form.squaremeter }),
           city: form.city,
-          floorplan: selectedFloorplan,
+          ...(hasPlan ? {} : { floorplan: selectedFloorplan }),
           ...(plan ? { plan: planLabel(t, plan) } : {}),
 
 
@@ -460,20 +461,22 @@ function ContactSection() {
                 ))}
               </select>
             </label>
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="grid gap-2">
-                <span className="eyebrow text-muted-foreground">{t.contact.size}</span>
-                <select
-                  required
-                  value={form.size}
-                  onChange={updateSize}
-                  className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
-                >
-                  {t.contact.sizeOptions.map((o, i) => (
-                    <option key={o} value={String(i)}>{o}</option>
-                  ))}
-                </select>
-              </label>
+            <div className={hasPlan ? "grid gap-5" : "grid gap-5 sm:grid-cols-2"}>
+              {!hasPlan && (
+                <label className="grid gap-2">
+                  <span className="eyebrow text-muted-foreground">{t.contact.size}</span>
+                  <select
+                    required
+                    value={form.size}
+                    onChange={updateSize}
+                    className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                  >
+                    {t.contact.sizeOptions.map((o, i) => (
+                      <option key={o} value={String(i)}>{o}</option>
+                    ))}
+                  </select>
+                </label>
+              )}
               <label className="grid gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.city}</span>
                 <input
@@ -483,7 +486,7 @@ function ContactSection() {
                 />
               </label>
             </div>
-            {form.size === "3" && (
+            {!hasPlan && form.size === "3" && (
               <label className="grid gap-2">
                 <span className="eyebrow text-muted-foreground">{t.contact.squaremeter}</span>
                 <input
@@ -504,23 +507,27 @@ function ContactSection() {
                 />
               </label>
             )}
-            <label className="grid gap-2">
-              <span className="eyebrow text-muted-foreground">{t.contact.floorplan}</span>
-              <select
-                required
-                value={form.floorplan}
-                onChange={update("floorplan")}
-                className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
-              >
-                {t.contact.floorplanOptions.map((o, i) => (
-                  <option key={o} value={String(i)}>{o}</option>
-                ))}
-              </select>
-            </label>
-            {form.floorplan === "1" && (
-              <p className="rounded-sm border border-accent/40 bg-accent/5 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-                {t.contact.floorplanNote}
-              </p>
+            {!hasPlan && (
+              <>
+                <label className="grid gap-2">
+                  <span className="eyebrow text-muted-foreground">{t.contact.floorplan}</span>
+                  <select
+                    required
+                    value={form.floorplan}
+                    onChange={update("floorplan")}
+                    className="rounded-sm border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent"
+                  >
+                    {t.contact.floorplanOptions.map((o, i) => (
+                      <option key={o} value={String(i)}>{o}</option>
+                    ))}
+                  </select>
+                </label>
+                {form.floorplan === "1" && (
+                  <p className="rounded-sm border border-accent/40 bg-accent/5 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+                    {t.contact.floorplanNote}
+                  </p>
+                )}
+              </>
             )}
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.message}</span>
