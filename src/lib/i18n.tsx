@@ -87,7 +87,7 @@ export const hu = {
   },
   packages: {
     title: "Havi csomagok",
-    subtitle: "Rendszeres megbízásokhoz, kedvezőbb áron. Havonta mondható, kötöttség nélkül.",
+    subtitle: "Rendszeres megbízásokhoz, kedvezőbb áron. Havi számlázással, kötöttségek nélkül.",
     plans: [
       {
         name: "Partner",
@@ -261,7 +261,7 @@ export const en: Dict = {
   },
   packages: {
     title: "Monthly packages",
-    subtitle: "For regular work, at a better rate. Monthly, cancel anytime.",
+    subtitle: "For regular work, at a better rate. Billed monthly, cancel anytime.",
     plans: [
       {
         name: "Partner",
