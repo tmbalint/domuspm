@@ -141,8 +141,9 @@ export const hu = {
     title: "Ügyfeleink",
     items: [
       {
-        quote: "A túra óta többen találnak ránk a térképen, és pontosan tudják, mi vár rájuk.",
-        author: "Kávézó tulajdonos, Budapest",
+        quote: ",,Elégedettek vagyunk a munkájukkal, profi és igényes munkát végeztek. A szervezés során is rugalmasak és segítőkészek voltak, a virtuális séta pedig hibátlanul működik és mutatja be az ingatlant. Segítségével a hirdetés is kitűnik a többi közül.
+                Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!” ",
+        author: "Borbély Róbert, Komplex Ingatlaniroda",
       },
     ],
   },
@@ -315,8 +316,9 @@ export const en: Dict = {
     title: "Client words",
     items: [
       {
-        quote: "Since the tour went live, more people find us on the map and know what to expect.",
-        author: "Café owner, Budapest",
+        quote: "“We are satisfied with their work; they did a professional and high-quality job. They were also flexible and helpful during the organization, and the virtual tour works flawlessly and presents the property well. With its help, the listing also stands out from the others.
+If you want a professional VR tour of your property, I warmly recommend them!”",
+        author: "Borbély Róbert, Komplex Ingatlaniroda",
       },
     ],
   },
