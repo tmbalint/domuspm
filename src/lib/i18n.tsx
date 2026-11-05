@@ -99,7 +99,7 @@ export const hu = {
           "48 órás átfutás",
         ],
         extrasTitle: "Minden további ingatlan (4 felett):",
-        extras: ["70 m²-ig: 16 990 Ft", "140 m²-ig: 24 490 Ft", "205 m²-ig: 33 990 Ft"],
+        extras: ["70 m²-ig: 16 990 Ft", "140 m²-ig: 25 490 Ft", "205 m²-ig: 33 990 Ft"],
         cta: "Árajánlatot kérek",
       },
       {
@@ -114,7 +114,7 @@ export const hu = {
           "Saját logó a túrán és az alaprajzon, külön díj nélkül",
         ],
         extrasTitle: "Minden további ingatlan (8 felett):",
-        extras: ["70 m²-ig: 16 990 Ft", "140 m²-ig: 24 490 Ft", "205 m²-ig: 33 990 Ft"],
+        extras: ["70 m²-ig: 16 990 Ft", "140 m²-ig: 25 490 Ft", "205 m²-ig: 33 990 Ft"],
         cta: "Árajánlatot kérek",
       },
     ],
@@ -141,8 +141,8 @@ export const hu = {
     title: "Ügyfeleink",
     items: [
       {
-        quote: ",,Elégedettek vagyunk a munkájukkal, profi és igényes munkát végeztek. A szervezés során is rugalmasak és segítőkészek voltak, a virtuális séta pedig hibátlanul működik és mutatja be az ingatlant. Segítségével a hirdetés is kitűnik a többi közül.
-                Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!” ",
+        quote: `,,Elégedettek vagyunk a munkájukkal, profi és igényes munkát végeztek. A szervezés során is rugalmasak és segítőkészek voltak, a virtuális séta pedig hibátlanul működik és mutatja be az ingatlant. Segítségével a hirdetés is kitűnik a többi közül.
+                Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!” `,
         author: "Borbély Róbert, Komplex Ingatlaniroda",
       },
     ],
@@ -274,7 +274,7 @@ export const en: Dict = {
           "48-hour turnaround",
         ],
         extrasTitle: "Every extra property (beyond 4):",
-        extras: ["up to 70 m²: 16,990 HUF", "up to 140 m²: 24,490 HUF", "up to 205 m²: 33,990 HUF"],
+        extras: ["up to 70 m²: 16,990 HUF", "up to 140 m²: 25,490 HUF", "up to 205 m²: 33,990 HUF"],
         cta: "Request a quote",
       },
       {
@@ -289,7 +289,7 @@ export const en: Dict = {
           "Your own logo on the tour and the floor plan, at no extra charge",
         ],
         extrasTitle: "Every extra property (beyond 8):",
-        extras: ["up to 70 m²: 16,990 HUF", "up to 140 m²: 24,490 HUF", "up to 205 m²: 33,990 HUF"],
+        extras: ["up to 70 m²: 16,990 HUF", "up to 140 m²: 25,490 HUF", "up to 205 m²: 33,990 HUF"],
         cta: "Request a quote",
       },
     ],
@@ -316,8 +316,8 @@ export const en: Dict = {
     title: "Client words",
     items: [
       {
-        quote: "“We are satisfied with their work; they did a professional and high-quality job. They were also flexible and helpful during the organization, and the virtual tour works flawlessly and presents the property well. With its help, the listing also stands out from the others.
-If you want a professional VR tour of your property, I warmly recommend them!”",
+        quote: `“We are satisfied with their work; they did a professional and high-quality job. They were also flexible and helpful during the organization, and the virtual tour works flawlessly and presents the property well. With its help, the listing also stands out from the others.
+If you want a professional VR tour of your property, I warmly recommend them!”`,
         author: "Borbély Róbert, Komplex Ingatlaniroda",
       },
     ],
