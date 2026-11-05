@@ -141,8 +141,8 @@ export const hu = {
     title: "Ügyfeleink",
     items: [
       {
-        quote: `,,Elégedettek vagyunk a munkájukkal, profi és igényes munkát végeztek. A szervezés során is rugalmasak és segítőkészek voltak, a virtuális séta pedig hibátlanul működik és mutatja be az ingatlant. Segítségével a hirdetés is kitűnik a többi közül.
-                Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!” `,
+        quote: `„Elégedettek vagyunk a munkájukkal, profi és igényes munkát végeztek. A szervezés során is rugalmasak és segítőkészek voltak, a virtuális séta pedig hibátlanul működik és mutatja be az ingatlant. Segítségével a hirdetés is kitűnik a többi közül.
+Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!”`,
         author: "Borbély Róbert, Komplex Ingatlaniroda",
       },
     ],

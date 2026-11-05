@@ -292,7 +292,7 @@ function Site() {
                   className="rounded-sm border border-border bg-card p-8"
                 >
                   <Quote className="h-6 w-6 text-accent" />
-                  <p className="mt-5 text-base leading-relaxed">{item.quote}</p>
+                  <p className="mt-5 whitespace-pre-line text-base leading-relaxed">{item.quote}</p>
                   <footer className="eyebrow mt-6 text-muted-foreground">{item.author}</footer>
                 </blockquote>
               ))}
