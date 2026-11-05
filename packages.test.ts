@@ -4,7 +4,7 @@ import { en, hu } from "./src/lib/i18n";
 import { PLAN_IDS, hidesTourDetails } from "./src/lib/plans";
 
 // Monthly packages stated by the owner: Partner 69,990 Ft/month (4 properties),
-// Pro 129,990 Ft/month (8 properties); extra properties 15,990 / 23,990 / 31,990 Ft.
+// Pro 129,990 Ft/month (8 properties); extra properties 16,990 / 25,490 / 33,990 Ft.
 test("two monthly plans with the agreed prices and property counts", () => {
   expect(hu.packages.plans.map((p) => p.name)).toEqual(["Partner", "Pro"]);
   expect(hu.packages.plans.map((p) => p.price)).toEqual(["69 990 Ft / hónap", "129 990 Ft / hónap"]);
@@ -15,7 +15,7 @@ test("two monthly plans with the agreed prices and property counts", () => {
 });
 
 test("extra-property rates are identical in both plans", () => {
-  const extras = ["70 m²-ig: 15 990 Ft", "140 m²-ig: 23 990 Ft", "205 m²-ig: 31 990 Ft"];
+  const extras = ["70 m²-ig: 16 990 Ft", "140 m²-ig: 25 490 Ft", "205 m²-ig: 33 990 Ft"];
   expect(hu.packages.plans[0]!.extras).toEqual(extras);
   expect(hu.packages.plans[1]!.extras).toEqual(extras);
   expect(hu.packages.plans[0]!.extrasTitle).toContain("4 felett");
