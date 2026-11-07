@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin, Ruler } from "lucide-react";
 
 import heroImg from "@/assets/hero.jpg";
-import vagodhidCover from "@/assets/tour-vagodhid.jpg.asset.json";
-import gyongyosCover from "@/assets/tour-gyongyos-3.jpg.asset.json";
+import vagodhidCover from "@/assets/vagodhid-cover.jpg";
+import gyongyosCover from "@/assets/gyongyos_cover_3.jpg";
 
 import { LangProvider, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
@@ -79,7 +79,7 @@ const tourLinks = [
   "https://www.keypano.com/v/b6b96733c9jbn5-1790784270.html",
   "https://www.keypano.com/v/8e6pad67xae2x2-1792699797.html",
 ];
-const tourCovers = [vagodhidCover.url, gyongyosCover.url];
+const tourCovers = [vagodhidCover, gyongyosCover];
 
 function Page() {
   return (
