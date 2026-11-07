@@ -68,7 +68,7 @@ export function Header() {
           </span>
         </a>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <nav className="hidden items-center gap-6 text-sm lg:flex">
             {links.map((l) =>
               l.to ? (
@@ -82,7 +82,7 @@ export function Header() {
               ),
             )}
           </nav>
-          <div className="hidden sm:block">
+          <div className="shrink-0">
             <LangToggle />
           </div>
           <a href={`${base}#contact`} className="btn-gold hidden sm:inline-flex">
@@ -125,7 +125,6 @@ export function Header() {
             <a href={`${base}#contact`} onClick={() => setOpen(false)} className="btn-gold w-fit">
               {t.cta}
             </a>
-            <LangToggle />
           </nav>
         </div>
       )}
