@@ -4,7 +4,7 @@ import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin, Ruler } fr
 
 import heroImg from "@/assets/hero.jpg";
 import vagodhidCover from "@/assets/tour-vagodhid.jpg.asset.json";
-import gyongyosCover from "@/assets/tour-gyongyos-2.jpg.asset.json";
+import gyongyosCover from "@/assets/tour-gyongyos-3.jpg.asset.json";
 
 import { LangProvider, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
