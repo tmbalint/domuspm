@@ -262,24 +262,6 @@ function Site() {
           </div>
         </section>
 
-        <section id="about" className="section bg-primary text-primary-foreground">
-          <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-            <ArchIcon className="mx-auto h-9 w-9 text-accent" />
-            <p className="eyebrow mt-6 text-accent">{t.about.eyebrow}</p>
-            <h2 className="mt-4 text-3xl sm:text-4xl">{t.about.title}</h2>
-            <div className="mt-5 space-y-5">
-              {t.about.paragraphs.map((p, i) => (
-                <p
-                  key={i}
-                  className="text-base leading-relaxed text-primary-foreground/75"
-                >
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Testimonials */}
         <section id="testimonials" className="section">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -295,6 +277,24 @@ function Site() {
                   <p className="mt-5 whitespace-pre-line text-base leading-relaxed">{item.quote}</p>
                   <footer className="eyebrow mt-6 text-muted-foreground">{item.author}</footer>
                 </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="section bg-primary text-primary-foreground">
+          <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+            <ArchIcon className="mx-auto h-9 w-9 text-accent" />
+            <p className="eyebrow mt-6 text-accent">{t.about.eyebrow}</p>
+            <h2 className="mt-4 text-3xl sm:text-4xl">{t.about.title}</h2>
+            <div className="mt-5 space-y-5">
+              {t.about.paragraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className="text-base leading-relaxed text-primary-foreground/75"
+                >
+                  {p}
+                </p>
               ))}
             </div>
           </div>

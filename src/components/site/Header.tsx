@@ -49,8 +49,8 @@ export function Header() {
     { href: `${base}#services`, label: t.nav.services },
     { href: `${base}#pricing`, label: t.nav.pricing },
     { href: `${base}#packages`, label: t.nav.packages },
-    { href: `${base}#about`, label: t.nav.about },
     { href: `${base}#testimonials`, label: t.nav.testimonials },
+    { href: `${base}#about`, label: t.nav.about },
   ];
 
   const navClass = (item: NavItem) =>

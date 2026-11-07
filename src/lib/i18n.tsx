@@ -10,9 +10,9 @@ export const hu = {
     services: "Szolgáltatások",
     pricing: "Árak",
     packages: "Havi csomagok",
+    testimonials: "Vélemények",
     about: "Rólunk",
 
-    testimonials: "Vélemények",
     contact: "Kapcsolat",
   },
   cta: "Foglalj túrát",
@@ -185,9 +185,9 @@ export const en: Dict = {
     services: "Services",
     pricing: "Pricing",
     packages: "Monthly packages",
+    testimonials: "Reviews",
     about: "About",
 
-    testimonials: "Reviews",
     contact: "Contact",
   },
   cta: "Book Your Tour",
