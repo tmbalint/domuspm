@@ -9,18 +9,20 @@ function LangToggle() {
     <div className="flex items-center gap-1 text-xs tracking-[0.18em] uppercase">
       <button
         onClick={() => setLang("hu")}
-        className="px-1.5 py-1.5 hover:text-accent"
         aria-pressed={lang === "hu"}
-        className={lang === "hu" ? "text-accent" : "text-current/60 hover:text-accent"}
+        className={`px-1.5 py-1.5 transition-colors hover:text-accent ${
+          lang === "hu" ? "text-accent" : "text-current/60"
+        }`}
       >
         HU
       </button>
       <span className="text-current/30">/</span>
       <button
         onClick={() => setLang("en")}
-        className="px-1.5 py-1.5 hover:text-accent"
         aria-pressed={lang === "en"}
-        className={lang === "en" ? "text-accent" : "text-current/60 hover:text-accent"}
+        className={`px-1.5 py-1.5 transition-colors hover:text-accent ${
+          lang === "en" ? "text-accent" : "text-current/60"
+        }`}
       >
         EN
       </button>
