@@ -187,7 +187,7 @@ export const en: Dict = {
     packages: "Monthly packages",
     about: "About",
 
-    testimonials: "Testimonials",
+    testimonials: "Reviews",
     contact: "Contact",
   },
   cta: "Book Your Tour",
