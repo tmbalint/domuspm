@@ -9,14 +9,20 @@ function LangToggle() {
     <div className="flex items-center gap-1 text-xs tracking-[0.18em] uppercase">
       <button
         onClick={() => setLang("hu")}
-        className={lang === "hu" ? "text-accent" : "text-current/60 hover:text-accent"}
+        aria-pressed={lang === "hu"}
+        className={`px-1.5 py-1.5 transition-colors hover:text-accent ${
+          lang === "hu" ? "text-accent" : "text-current/60"
+        }`}
       >
         HU
       </button>
       <span className="text-current/30">/</span>
       <button
         onClick={() => setLang("en")}
-        className={lang === "en" ? "text-accent" : "text-current/60 hover:text-accent"}
+        aria-pressed={lang === "en"}
+        className={`px-1.5 py-1.5 transition-colors hover:text-accent ${
+          lang === "en" ? "text-accent" : "text-current/60"
+        }`}
       >
         EN
       </button>
@@ -62,7 +68,7 @@ export function Header() {
           </span>
         </a>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <nav className="hidden items-center gap-6 text-sm lg:flex">
             {links.map((l) =>
               l.to ? (
@@ -76,7 +82,7 @@ export function Header() {
               ),
             )}
           </nav>
-          <div className="hidden sm:block">
+          <div className="shrink-0">
             <LangToggle />
           </div>
           <a href={`${base}#contact`} className="btn-gold hidden sm:inline-flex">
@@ -119,7 +125,6 @@ export function Header() {
             <a href={`${base}#contact`} onClick={() => setOpen(false)} className="btn-gold w-fit">
               {t.cta}
             </a>
-            <LangToggle />
           </nav>
         </div>
       )}
