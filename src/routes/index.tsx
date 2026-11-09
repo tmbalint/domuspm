@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
             "360° virtual tours for homes, Airbnb rentals and small businesses, embedded on Google Maps and your website.",
           url: `${SITE_URL}/`,
           telephone: "+36705424017",
-          email: "timarbalint60@gmail.com",
+          email: "timar.balint@domustours.com",
           image: `${SITE_URL}/favicon.png`,
           priceRange: "19,990 HUF - 39,990 HUF",
           areaServed: "Hungary",
@@ -383,8 +383,8 @@ function ContactSection() {
           <h2 className="mt-4 text-3xl sm:text-4xl">{t.contact.title}</h2>
           <p className="mt-3 max-w-md text-sm text-muted-foreground">{t.contact.body}</p>
           <div className="mt-8 space-y-3 text-sm">
-            <a href="mailto:timarbalint60@gmail.com" className="flex items-center gap-3 hover:text-accent">
-              <Mail className="h-4 w-4 shrink-0 text-accent" /> timarbalint60@gmail.com
+            <a href="mailto:timar.balint@domustours.com" className="flex items-center gap-3 hover:text-accent">
+              <Mail className="h-4 w-4 shrink-0 text-accent" /> timar.balint@domustours.com
             </a>
             <a href="tel:+36705424017" className="flex items-center gap-3 hover:text-accent">
               <Phone className="h-4 w-4 shrink-0 text-accent" /> +36 70 542 4017
