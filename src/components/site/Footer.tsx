@@ -17,8 +17,8 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 text-sm md:items-end">
-          <a href="mailto:timarbalint60@gmail.com" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
-            <Mail className="h-4 w-4" /> timarbalint60@gmail.com
+          <a href="mailto:timar.balint@domustours.com" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
+            <Mail className="h-4 w-4" /> timar.balint@domustours.com
           </a>
           <a href="tel:+36705424017" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-accent">
             <Phone className="h-4 w-4" /> +36 70 542 4017
