@@ -16,6 +16,11 @@ export const hu = {
     contact: "Kapcsolat",
   },
   cta: "Foglalj túrát",
+  announce: {
+    bar: "Új ügyfeleknek az első túra díjmentes – kattints a részletekért!",
+    banner:
+      "Új ügyfeleknek az első túra ingyen (140 m²-ig). Cserébe kérünk egy őszinte véleményt, és hogy a munkát megmutathassuk referenciáink között.",
+  },
   hero: {
     eyebrow: "Budapest, Hungary · 360° virtuális túrák",
     title: "360° virtuális túrák otthonokhoz és üzletekhez",
@@ -191,6 +196,11 @@ export const en: Dict = {
     contact: "Contact",
   },
   cta: "Book Your Tour",
+  announce: {
+    bar: "First tour is on us for new clients – click for details!",
+    banner:
+      "First tour free for new clients (up to 140 m²). In return, we ask for an honest review and permission to show the work in our portfolio.",
+  },
   hero: {
     eyebrow: "Budapest, Hungary · 360° virtual tours",
     title: "360° Virtual Tours for Homes & Businesses",

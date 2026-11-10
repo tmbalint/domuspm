@@ -60,6 +60,12 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-primary-foreground/10 bg-primary/90 text-primary-foreground backdrop-blur-md">
+      <a
+        href={`${base}#offer`}
+        className="block border-b border-primary/20 bg-accent px-4 py-1.5 text-center text-xs font-medium tracking-wide whitespace-nowrap text-accent-foreground transition-opacity hover:opacity-90"
+      >
+        {t.announce.bar}
+      </a>
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 sm:px-8">
         <a href={`${base}#top`} className="flex min-w-0 items-center gap-3">
           <img src="/favicon.png" alt="Domus Property Media" className="h-10 w-10 shrink-0" />
