@@ -137,7 +137,7 @@ function Site() {
         </section>
 
         {/* Featured tours */}
-        <section id="tours" className="section">
+        <section id="tours" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.tours.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.tours.title}</h2>
@@ -153,7 +153,7 @@ function Site() {
         <ArchDivider />
 
         {/* Services */}
-        <section id="services" className="section bg-secondary">
+        <section id="services" className="section scroll-mt-28 bg-secondary">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.services.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.services.title}</h2>
@@ -172,7 +172,7 @@ function Site() {
         </section>
 
         {/* How it works */}
-        <section id="process" className="section">
+        <section id="process" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.process.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.process.title}</h2>
@@ -192,6 +192,7 @@ function Site() {
                 <div className="space-y-2">
                   <h3 className="text-xl">{t.process.deliverTitle}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{t.process.deliverBody}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{t.process.deliverOnline}</p>
                 </div>
               </div>
             </article>
@@ -211,13 +212,13 @@ function Site() {
         </section>
 
         {/* Pricing */}
-        <section id="pricing" className="section">
+        <section id="pricing" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <div
               id="offer"
               className="mb-10 scroll-mt-36 rounded-sm border border-accent bg-primary px-6 py-5 text-center text-sm leading-relaxed text-primary-foreground sm:px-10"
             >
-              <span className="text-accent">{t.announce.banner}</span>
+              <span className="font-semibold text-accent">{t.announce.banner}</span>
             </div>
             <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
               <div className="min-w-0">
@@ -256,7 +257,7 @@ function Site() {
 
 
         {/* About */}
-        <section id="packages" className="section bg-secondary">
+        <section id="packages" className="section scroll-mt-28 bg-secondary">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <div className="max-w-2xl">
               <h2 className="text-3xl sm:text-4xl">{t.packages.title}</h2>
@@ -269,7 +270,7 @@ function Site() {
         </section>
 
         {/* Testimonials */}
-        <section id="testimonials" className="section">
+        <section id="testimonials" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <Eyebrow>{t.testimonials.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.testimonials.title}</h2>
@@ -288,7 +289,7 @@ function Site() {
           </div>
         </section>
 
-        <section id="about" className="section bg-primary text-primary-foreground">
+        <section id="about" className="section scroll-mt-28 bg-primary text-primary-foreground">
           <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
             <ArchIcon className="mx-auto h-9 w-9 text-accent" />
             <p className="eyebrow mt-6 text-accent">{t.about.eyebrow}</p>
@@ -382,7 +383,7 @@ function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section bg-secondary">
+    <section id="contact" className="section scroll-mt-28 bg-secondary">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2">
         <div className="min-w-0">
           <Eyebrow>{t.contact.eyebrow}</Eyebrow>
@@ -548,6 +549,7 @@ function ContactSection() {
             <button type="submit" disabled={submitting} className="btn-gold w-full disabled:opacity-60 disabled:cursor-not-allowed">
               {submitting ? "..." : t.contact.submit}
             </button>
+            <p className="text-center text-xs text-muted-foreground">{t.contact.privacy}</p>
             {sent && <p className="text-sm text-accent">{t.contact.sent}</p>}
             {error && <p className="text-sm text-destructive">Something went wrong, please email us directly.</p>}
           </div>
