@@ -213,6 +213,12 @@ function Site() {
         {/* Pricing */}
         <section id="pricing" className="section">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <div
+              id="offer"
+              className="mb-10 scroll-mt-36 rounded-sm border border-accent bg-primary px-6 py-5 text-center text-sm leading-relaxed text-primary-foreground sm:px-10"
+            >
+              <span className="text-accent">{t.announce.banner}</span>
+            </div>
             <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
               <div className="min-w-0">
                 <Eyebrow>{t.pricing.eyebrow}</Eyebrow>
