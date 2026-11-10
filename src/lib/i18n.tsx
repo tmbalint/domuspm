@@ -8,11 +8,8 @@ export const hu = {
   nav: {
     tours: "Bemutató túrák",
     services: "Szolgáltatások",
-    pricing: "Árak",
-    packages: "Havi csomagok",
+    pricing: "Árak és csomagok",
     testimonials: "Vélemények",
-    about: "Rólunk",
-
     contact: "Kapcsolat",
   },
   cta: "Foglalj túrát",
@@ -84,6 +81,7 @@ export const hu = {
     note: "Egyedi méretű vagy típusú ingatlan esetén az ingatlan és az igényeid megismerése után becsüljük meg az időt.",
     deliverTitle: "Amit kapsz",
     deliverBody: "Egy 360°-os virtuális túra az ingatlanodról, amelyet linkkel és QR-kóddal bárkinek megoszthatsz.",
+    deliverOnline: "A túra 12 hónapig online elérhető.",
     addonTag: "Kiegészítő",
     addonTitle: "Alaprajz",
     addonBody: "Kiegészítőként alaprajzot is készítünk. Az alaprajz tájékoztató jellegű, nem hivatalos felmérés.",
@@ -176,10 +174,11 @@ Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!”`,
 
     message: "Üzenet",
     submit: "Küldés",
+    privacy: "A megadott adatokat kizárólag az ajánlatkéréshez használjuk.",
     sent: "Köszönjük, hamarosan válaszolunk.",
   },
   footer: {
-    tagline: "360° virtuális túrák országszerte.",
+    tagline: "360° virtuális túrák Budapesten és Győr–Mosonmagyaróvár térségében.",
     rights: "Minden jog fenntartva.",
   },
 };
@@ -188,11 +187,8 @@ export const en: Dict = {
   nav: {
     tours: "Featured tours",
     services: "Services",
-    pricing: "Pricing",
-    packages: "Monthly packages",
+    pricing: "Pricing & Plans",
     testimonials: "Reviews",
-    about: "About",
-
     contact: "Contact",
   },
   cta: "Book Your Tour",
@@ -264,6 +260,7 @@ export const en: Dict = {
     note: "For properties with an unusual size or type, we estimate the time once we know the property and your requirements.",
     deliverTitle: "What you get",
     deliverBody: "A 360° virtual tour of your property that you can share with anyone via a link and a QR code.",
+    deliverOnline: "The tour stays online for 12 months.",
     addonTag: "Add-on",
     addonTitle: "Floor plan",
     addonBody: "Optional add-on: we can also produce a floor plan. The plan is indicative, not an official survey.",
@@ -356,10 +353,11 @@ If you want a professional VR tour of your property, I warmly recommend them!”
 
     message: "Message",
     submit: "Send",
+    privacy: "We use your details only to respond to your inquiry.",
     sent: "Thank you — we'll be in touch shortly.",
   },
   footer: {
-    tagline: "360° virtual tours nationwide.",
+    tagline: "360° virtual tours in Budapest and the Győr–Mosonmagyaróvár area.",
     rights: "All rights reserved.",
   },
 };
