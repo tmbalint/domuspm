@@ -7,5 +7,5 @@
 - [x] Footer tagline: Budapest + Győr–Mosonmagyaróvár area (HU/EN)
 - [x] "Amit kapsz": add 12-months-online line (HU/EN)
 - [x] Contact form: privacy note under submit (HU/EN)
-- [ ] Make the #offer announcement banner text bold (user request)
-- [ ] Verify EN toggle switches copy (last check showed nav stuck in HU)
+- [x] Make the #offer announcement banner text bold (user request)
+- [x] Verify EN toggle switches copy (earlier failure was a test hydration race, not a site bug)
