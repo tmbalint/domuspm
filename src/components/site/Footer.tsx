@@ -1,6 +1,7 @@
 import { Instagram, Facebook, Mail, Phone } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { LangToggle } from "./Header";
+import { FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/social";
 
 export function Footer() {
   const { t } = useLang();
@@ -24,12 +25,16 @@ export function Footer() {
             <Phone className="h-4 w-4" /> +36 70 542 4017
           </a>
           <div className="flex gap-4">
-            <a href="https://instagram.com" aria-label="Instagram" className="text-primary-foreground/70 hover:text-accent">
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a href="https://facebook.com" aria-label="Facebook" className="text-primary-foreground/70 hover:text-accent">
-              <Facebook className="h-5 w-5" />
-            </a>
+            {INSTAGRAM_URL && (
+              <a href={INSTAGRAM_URL} aria-label="Instagram" className="text-primary-foreground/70 hover:text-accent">
+                <Instagram className="h-5 w-5" />
+              </a>
+            )}
+            {FACEBOOK_URL && (
+              <a href={FACEBOOK_URL} aria-label="Facebook" className="text-primary-foreground/70 hover:text-accent">
+                <Facebook className="h-5 w-5" />
+              </a>
+            )}
           </div>
           <LangToggle />
         </div>
