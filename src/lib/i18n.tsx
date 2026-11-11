@@ -38,7 +38,7 @@ export const hu = {
     open: "Túra megtekintése",
     items: [
       { name: "Külvárosi lakás", type: "360° · 53 m²" },
-      { name: "Kertvárosi családi ház", type: "360° · 120+ m²" },
+      { name: "Kertvárosi családi ház", type: "360° · 293 m² · 3 szint · kerttel" },
     ],
   },
   services: {
@@ -206,7 +206,7 @@ export const en: Dict = {
     open: "View tour",
     items: [
       { name: "Apartment in the outer districts", type: "360° · 53 m²" },
-      { name: "Family house in a garden suburb", type: "360° · 120+ m²" },
+      { name: "Family house in a garden suburb", type: "360° · 293 m² · 3 floors · garden" },
     ],
   },
   services: {
