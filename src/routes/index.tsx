@@ -46,12 +46,9 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: hu.meta.description },
       { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],
-    // The HU/EN toggle does not change the URL, so every language variant lives at "/".
+    // The HU/EN toggle does not change the URL, so no hreflang alternates are emitted.
     links: [
       { rel: "canonical", href: `${SITE_URL}/` },
-      { rel: "alternate", hrefLang: "hu", href: `${SITE_URL}/` },
-      { rel: "alternate", hrefLang: "en", href: `${SITE_URL}/` },
-      { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/` },
     ],
     scripts: [
       {

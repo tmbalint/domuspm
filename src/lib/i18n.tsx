@@ -20,7 +20,7 @@ export const hu = {
   },
   cta: "Foglaljon túrát",
   announce: {
-    bar: "Új ügyfeleknek az első túra díjmentes – kattints a részletekért!",
+    bar: "Új ügyfeleknek az első túra díjmentes – kattintson a részletekért!",
     banner:
       "Új ügyfeleknek az első túra ingyen (140 m²-ig). Cserébe kérünk egy őszinte véleményt, és hogy a munkát megmutathassuk referenciáink között.",
   },
@@ -325,7 +325,7 @@ export const en: Dict = {
     city: "City",
     floorplan: "Would you like a floor plan?",
     floorplanOptions: ["No, thank you", "Yes, please"],
-    floorplanNote: "The floor plan isn't included in the tour price: it's an extra 9,990 HUF.",
+    floorplanNote: "The floor plan isn't included in the tour price: it's an extra 9 990 Ft.",
     planLabel: "Selected plan",
     planChange: "Change plan",
     planRemove: "Remove",
