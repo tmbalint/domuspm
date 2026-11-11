@@ -6,7 +6,7 @@ import heroImg from "@/assets/hero.jpg";
 import vagodhidCover from "@/assets/vagodhid-cover.jpg";
 import gyongyosCover from "@/assets/gyongyos_cover_3.jpg";
 
-import { LangProvider, useLang } from "@/lib/i18n";
+import { LangProvider, hu, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
 import { PLAN_IDS, hidesTourDetails, planLabel, type PlanId } from "@/lib/plans";
 
@@ -15,7 +15,7 @@ import { Footer } from "@/components/site/Footer";
 import { TourCard, type Tour } from "@/components/site/TourCard";
 import { ArchDivider, ArchIcon, Eyebrow } from "@/components/site/Arch";
 
-const SITE_URL = "https://domuspropertymedia.lovable.app";
+const SITE_URL = "https://www.domustours.com";
 
 type IndexSearch = { plan?: PlanId };
 
@@ -29,21 +29,30 @@ export const Route = createFileRoute("/")({
 
   head: () => ({
     meta: [
-      { title: "Domus Property Media — 360° Virtual Tours in Budapest" },
-      {
-        name: "description",
-        content:
-          "360° virtual tours for homes, Airbnb rentals and small businesses in Budapest. Embedded on Google Maps and your website, ready in 48 hours.",
-      },
-      { property: "og:title", content: "Domus Property Media — 360° Virtual Tours in Budapest" },
-      {
-        property: "og:description",
-        content:
-          "360° virtual tours for homes, Airbnb rentals and small businesses in Budapest. Ready in 48 hours.",
-      },
+      { title: hu.meta.title },
+      { name: "description", content: hu.meta.description },
+      { property: "og:title", content: hu.meta.title },
+      { property: "og:description", content: hu.meta.description },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Domus Property Media" },
+      { property: "og:locale", content: "hu_HU" },
+      { property: "og:locale:alternate", content: "en_US" },
       { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: hu.meta.title },
+      { name: "twitter:description", content: hu.meta.description },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    // The HU/EN toggle does not change the URL, so every language variant lives at "/".
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "hu", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "en", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/` },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -51,19 +60,14 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Domus Property Media",
-          description:
-            "360° virtual tours for homes, Airbnb rentals and small businesses, embedded on Google Maps and your website.",
           url: `${SITE_URL}/`,
-          telephone: "+36705424017",
           email: "timar.balint@domustours.com",
-          image: `${SITE_URL}/favicon.png`,
-          priceRange: "19,990 HUF - 39,990 HUF",
-          areaServed: "Hungary",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Budapest",
-            addressCountry: "HU",
-          },
+          telephone: "+36 70 542 4017",
+          image: `${SITE_URL}/og-image.jpg`,
+          areaServed: [
+            { "@type": "City", name: "Budapest" },
+            { "@type": "City", name: "Mosonmagyaróvár" },
+          ],
         }),
       },
     ],
@@ -397,7 +401,7 @@ function ContactSection() {
               <Phone className="h-4 w-4 shrink-0 text-accent" /> +36 70 542 4017
             </a>
             <p className="flex items-center gap-3 text-muted-foreground">
-              <MapPin className="h-4 w-4 shrink-0 text-accent" /> Budapest, Hungary
+              <MapPin className="h-4 w-4 shrink-0 text-accent" /> {t.contact.location}
             </p>
           </div>
         </div>

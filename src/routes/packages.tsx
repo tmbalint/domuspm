@@ -6,7 +6,7 @@ import { Footer } from "@/components/site/Footer";
 import { ArchIcon } from "@/components/site/Arch";
 import { PlanCards } from "@/components/site/PlanCards";
 
-const SITE_URL = "https://domuspropertymedia.lovable.app";
+const SITE_URL = "https://www.domustours.com";
 
 export const Route = createFileRoute("/packages")({
   component: Page,
