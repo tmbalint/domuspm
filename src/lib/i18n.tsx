@@ -22,7 +22,7 @@ export const hu = {
   announce: {
     bar: "Új ügyfeleknek az első túra díjmentes – kattintson a részletekért!",
     banner:
-      "Új ügyfeleknek az első túra ingyen (140 m²-ig). Cserébe kérünk egy őszinte véleményt, és hogy a munkát megmutathassuk referenciáink között.",
+      "Új ügyfeleink számára az első túra díjmentes (140 m²-ig). Ennek feltétele egy rövid, őszinte értékelés, valamint hozzájárulás ahhoz, hogy az elkészült túrát referenciaként bemutathassuk.",
   },
   hero: {
     eyebrow: "Budapest, Magyarország · 360° virtuális túrák",
@@ -190,7 +190,7 @@ export const en: Dict = {
   announce: {
     bar: "First tour is on us for new clients – click for details!",
     banner:
-      "First tour free for new clients (up to 140 m²). In return, we ask for an honest review and permission to show the work in our portfolio.",
+      "New clients receive their first tour free of charge (up to 140 m²). In return, we kindly ask for a brief, honest review and your consent to feature the completed tour in our portfolio.",
   },
   hero: {
     eyebrow: "Budapest, Hungary · 360° virtual tours",
