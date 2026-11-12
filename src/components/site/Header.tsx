@@ -62,7 +62,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-primary-foreground/10 bg-primary/90 text-primary-foreground backdrop-blur-md">
       <a
         href={`${base}#offer`}
-        className="block border-b border-primary/20 bg-accent px-4 py-1.5 text-center text-xs font-medium tracking-wide whitespace-nowrap text-accent-foreground transition-opacity hover:opacity-90"
+        className="block border-b border-primary/20 bg-accent px-4 py-1.5 text-center text-xs font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
       >
         {t.announce.bar}
       </a>
