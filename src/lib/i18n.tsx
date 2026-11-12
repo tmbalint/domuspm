@@ -60,7 +60,7 @@ export const hu = {
       { price: "19 990 Ft", size: "70 m²-ig", cta: "Foglaljon túrát" },
       { price: "29 990 Ft", size: "140 m²-ig", cta: "Foglaljon túrát" },
       { price: "39 990 Ft", size: "205 m²-ig", cta: "Foglaljon túrát" },
-      { price: "39 990 Ft + 14 990 Ft / megkezdett 100 m²", size: "205 m² felett", cta: "Foglaljon túrát" },
+      { price: "39 990 Ft + 14 990 Ft / megkezdett 100 m²", size: "205 m² felett", cta: "Foglaljon túrát" },
     ],
   },
   process: {
@@ -86,7 +86,7 @@ export const hu = {
     plans: [
       {
         name: "Partner",
-        price: "69 990 Ft / hónap",
+        price: "69 990 Ft / hónap",
         features: [
           "Havonta 4 ingatlan, egyenként 140 m²-ig",
           "140–205 m² között: felár 7 990 Ft / ingatlan",
@@ -99,7 +99,7 @@ export const hu = {
       },
       {
         name: "Pro",
-        price: "149 990 Ft / hónap",
+        price: "149 990 Ft / hónap",
         features: [
           "Havonta 8 ingatlan, egyenként 205 m²-ig",
           "205 m² felett: felár 12 490 Ft / megkezdett 100 m²",
@@ -228,7 +228,7 @@ export const en: Dict = {
       { price: "19 990 Ft", size: "Up to 70 m²", cta: "Book a tour" },
       { price: "29 990 Ft", size: "Up to 140 m²", cta: "Book a tour" },
       { price: "39 990 Ft", size: "Up to 205 m²", cta: "Book a tour" },
-      { price: "39 990 Ft + 14 990 Ft per started 100 m²", size: "Over 205 m²", cta: "Book a tour" },
+      { price: "39 990 Ft + 14 990 Ft per started 100 m²", size: "Over 205 m²", cta: "Book a tour" },
     ],
   },
   process: {
@@ -254,7 +254,7 @@ export const en: Dict = {
     plans: [
       {
         name: "Partner",
-        price: "69 990 Ft / month",
+        price: "69 990 Ft / month",
         features: [
           "4 properties per month, up to 140 m² each",
           "Between 140 and 205 m²: surcharge of 7 990 Ft per property",
@@ -267,7 +267,7 @@ export const en: Dict = {
       },
       {
         name: "Pro",
-        price: "149 990 Ft / month",
+        price: "149 990 Ft / month",
         features: [
           "8 properties per month, up to 205 m² each",
           "Over 205 m²: surcharge of 12 490 Ft per started 100 m²",

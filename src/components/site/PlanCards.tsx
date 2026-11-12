@@ -10,7 +10,7 @@ export function PlanCards() {
   const { t } = useLang();
   return (
     <>
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {t.packages.plans.map((plan, i) => {
                 const id = PLAN_IDS[i] ?? PLAN_IDS[0]!;
                 const featured = id === "pro";
