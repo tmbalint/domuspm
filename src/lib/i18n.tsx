@@ -206,9 +206,9 @@ export const en: Dict = {
     note: "Tours open in a new tab.",
     open: "View tour",
     items: [
-      { name: "Apartment in the downtown", type: "170 m² · balcony" },
-      { name: "Apartment in the suburb", type: "53 m²" },
-      { name: "Family house in the suburb", type: "293 m² · 3 floors · garden" },
+      { name: "Downtown apartment", type: "170 m² · balcony" },
+      { name: "Suburban apartment", type: "53 m²" },
+      { name: "Suburban family house", type: "293 m² · 3 floors · garden" },
     ],
   },
   services: {
