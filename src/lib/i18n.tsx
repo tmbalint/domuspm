@@ -37,8 +37,9 @@ export const hu = {
     note: "A túrák új lapon nyílnak meg.",
     open: "Túra megtekintése",
     items: [
-      { name: "Külvárosi lakás", type: "360° · 53 m²" },
-      { name: "Kertvárosi családi ház", type: "360° · 293 m² · 3 szint · kerttel" },
+      { name: "Belvárosi polgári lakás", type: "170 m² · erkéllyel" },
+      { name: "Külvárosi lakás", type: "53 m²" },
+      { name: "Kertvárosi családi ház", type: "293 m² · 3 szint · kerttel" },
     ],
   },
   services: {
@@ -205,8 +206,9 @@ export const en: Dict = {
     note: "Tours open in a new tab.",
     open: "View tour",
     items: [
-      { name: "Apartment in the outer districts", type: "360° · 53 m²" },
-      { name: "Family house in a garden suburb", type: "360° · 293 m² · 3 floors · garden" },
+      { name: "Classic apartment in the city centre", type: "170 m² · balcony" },
+      { name: "Apartment in the outer districts", type: "53 m²" },
+      { name: "Family house in a garden suburb", type: "293 m² · 3 floors · garden" },
     ],
   },
   services: {

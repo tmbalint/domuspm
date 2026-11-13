@@ -5,6 +5,8 @@ import { Building2, Coffee, Clock, Hotel, Quote, Mail, Phone, MapPin, Ruler } fr
 import heroImg from "@/assets/hero.jpg";
 import vagodhidCover from "@/assets/vagodhid-cover.jpg";
 import gyongyosCover from "@/assets/gyongyos_cover_3.jpg";
+// TODO: placeholder AI cover — replace with a real photo of the Podmaniczky flat
+import belvarosiCover from "@/assets/tour-apartment.jpg";
 
 import { LangProvider, hu, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
@@ -75,12 +77,13 @@ export const Route = createFileRoute("/")({
 // Each card links out to its Keypano tour in a new tab (Keypano blocks
 // embedding, so nothing is iframed here).
 // Cover order must match `tours.items` in src/lib/i18n.tsx — first entry =
-// first card: vagodhid = suburban apartment, gyongyos = garden-suburb house.
+// first card: belvarosi = city-centre apartment, vagodhid = suburban apartment, gyongyos = garden-suburb house.
 const tourLinks = [
+  "https://www.keypano.com/v/5a27r3je25f6ca-1794585000.html",
   "https://www.keypano.com/v/b6b96733c9jbn5-1790784270.html",
   "https://www.keypano.com/v/8e6pad67xae2x2-1792699797.html",
 ];
-const tourCovers = [vagodhidCover, gyongyosCover];
+const tourCovers = [belvarosiCover, vagodhidCover, gyongyosCover];
 
 function Page() {
   return (
@@ -143,7 +146,7 @@ function Site() {
             <Eyebrow>{t.tours.eyebrow}</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.tours.title}</h2>
             <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.tours.note}</p>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {tours.map((tour) => (
                 <TourCard key={tour.name} tour={tour} open={t.tours.open} />
               ))}
