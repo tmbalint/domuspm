@@ -27,17 +27,17 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
           </span>
         </div>
       </div>
-      <figcaption className="flex items-center justify-between gap-3 px-5 py-4">
-        <div className="min-w-0">
-          <p className="truncate font-display text-sm font-bold">{tour.name}</p>
-          <p className="truncate text-xs text-muted-foreground">{tour.type}</p>
+      <figcaption className="flex flex-col gap-4 px-5 py-5">
+        <div>
+          <p className="font-display text-base font-bold leading-snug">{tour.name}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{tour.type}</p>
         </div>
         {tour.url && (
           <a
             href={tour.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-sm border border-accent px-4 py-2 text-xs tracking-[0.18em] text-accent uppercase transition-colors hover:bg-accent/10"
+            className="block w-full rounded-sm border border-accent px-4 py-3 text-center text-xs tracking-[0.18em] text-accent uppercase transition-colors hover:bg-accent/10"
           >
             {open}
           </a>
