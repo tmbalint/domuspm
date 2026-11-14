@@ -4,6 +4,7 @@ import { Check } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { ArchIcon } from "@/components/site/Arch";
 import { PLAN_IDS } from "@/lib/plans";
+import { CountUp, Reveal } from "@/components/site/Motion";
 
 /** Monthly plan cards + terms. Copy lives only in t.packages (src/lib/i18n.tsx). */
 export function PlanCards() {
@@ -15,12 +16,12 @@ export function PlanCards() {
                 const id = PLAN_IDS[i] ?? PLAN_IDS[0]!;
                 const featured = id === "pro";
                 return (
+                  <Reveal key={plan.name} delay={i * 120} className="h-full">
                   <article
-                    key={plan.name}
                     className={
                       featured
-                        ? "flex flex-col rounded-sm border border-accent bg-primary p-8 text-primary-foreground shadow-2xl shadow-accent/25"
-                        : "flex flex-col rounded-sm border border-accent/40 bg-primary p-8 text-primary-foreground"
+                        ? "card-lift flex h-full flex-col rounded-sm border border-accent bg-primary p-8 text-primary-foreground shadow-2xl shadow-accent/25"
+                        : "card-lift flex h-full flex-col rounded-sm border border-accent/40 bg-primary p-8 text-primary-foreground"
                     }
                   >
                     <div className="flex items-center justify-between gap-4">
@@ -30,7 +31,7 @@ export function PlanCards() {
                       <ArchIcon className="h-6 w-6 shrink-0 text-accent" />
                     </div>
 
-                    <p className="mt-6 font-display text-3xl font-bold">{plan.price}</p>
+                    <p className="mt-6 font-display text-3xl font-bold"><CountUp text={plan.price} /></p>
 
                     {/* flex-1 keeps the extras block and the button at the same
                         height in both cards, whatever the feature count. */}
@@ -72,6 +73,7 @@ export function PlanCards() {
                       </Link>
                     </div>
                   </article>
+                  </Reveal>
                 );
               })}
             </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import { useScrolled } from "@/components/site/Motion";
 
 function LangToggle() {
   const { lang, setLang } = useLang();
@@ -37,6 +38,7 @@ type NavItem = { href: string; label: string; to?: "/packages"; active?: boolean
 export function Header() {
   const { t } = useLang();
   const [open, setOpen] = useState(false);
+  const scrolled = useScrolled();
 
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   // Section links live on the home page, so from any other page they need the
@@ -59,16 +61,29 @@ export function Header() {
       : "text-primary-foreground/75 transition-colors hover:text-accent";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-primary-foreground/10 bg-primary/90 text-primary-foreground backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b text-primary-foreground backdrop-blur-md transition-[background-color,box-shadow,border-color] duration-300 ${
+        scrolled
+          ? "border-accent/20 bg-primary/97 shadow-lg shadow-black/25"
+          : "border-primary-foreground/10 bg-primary/90"
+      }`}
+    >
       <a
         href={`${base}#offer`}
         className="block border-b border-primary/20 bg-accent px-4 py-1.5 text-center text-xs font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
       >
         {t.announce.bar}
       </a>
-      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 sm:px-8">
+      <div
+        className={`mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 transition-[padding] duration-300 sm:px-8 ${
+          scrolled ? "py-1.5" : "py-3"
+        }`}
+      >
         <a href={`${base}#top`} className="flex min-w-0 items-center gap-3">
-          <img src="/favicon.png" alt="Domus Property Media" className="h-10 w-10 shrink-0" />
+          <img src="/favicon.png" alt="Domus Property Media" className={`shrink-0 transition-[width,height] duration-300 ${
+              scrolled ? "h-8 w-8" : "h-10 w-10"
+            }`}
+          />
           <span className="min-w-0 truncate font-display text-sm font-bold tracking-[0.22em] uppercase">
             Domus
           </span>

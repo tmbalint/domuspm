@@ -10,7 +10,7 @@ export type Tour = {
 
 export function TourCard({ tour, open }: { tour: Tour; open: string }) {
   return (
-    <figure className="group overflow-hidden rounded-sm border border-border bg-card">
+    <figure className="card-lift group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card">
       <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
         <img
           src={tour.image}
@@ -27,7 +27,7 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
           </span>
         </div>
       </div>
-      <figcaption className="flex flex-col gap-4 px-5 py-5">
+      <figcaption className="flex flex-1 flex-col justify-between gap-4 px-5 py-5">
         <div>
           <p className="font-display text-base font-bold leading-snug">{tour.name}</p>
           <p className="mt-1 text-sm text-muted-foreground">{tour.type}</p>

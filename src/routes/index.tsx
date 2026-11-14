@@ -15,6 +15,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TourCard, type Tour } from "@/components/site/TourCard";
 import { ArchDivider, ArchIcon, Eyebrow } from "@/components/site/Arch";
+import { CountUp, Reveal } from "@/components/site/Motion";
 
 const SITE_URL = "https://www.domustours.com";
 
@@ -133,7 +134,7 @@ function Site() {
                 </a>
               </div>
               <p className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.2em] text-accent uppercase">
-                <Clock className="h-4 w-4" /> {t.hero.badge}
+                <Clock className="h-4 w-4" /> <CountUp text={t.hero.badge} />
               </p>
             </div>
           </div>
@@ -142,12 +143,16 @@ function Site() {
         {/* Featured tours */}
         <section id="tours" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <Eyebrow>{t.tours.eyebrow}</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl">{t.tours.title}</h2>
-            <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.tours.note}</p>
+            <Reveal>
+              <Eyebrow>{t.tours.eyebrow}</Eyebrow>
+              <h2 className="mt-4 text-3xl sm:text-4xl">{t.tours.title}</h2>
+              <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.tours.note}</p>
+            </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {tours.map((tour) => (
-                <TourCard key={tour.name} tour={tour} open={t.tours.open} />
+              {tours.map((tour, i) => (
+                <Reveal key={tour.name} delay={i * 110} className="h-full">
+                  <TourCard tour={tour} open={t.tours.open} />
+                </Reveal>
               ))}
             </div>
           </div>
@@ -158,17 +163,21 @@ function Site() {
         {/* Services */}
         <section id="services" className="section scroll-mt-28 bg-secondary">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <Eyebrow>{t.services.eyebrow}</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl">{t.services.title}</h2>
+            <Reveal>
+              <Eyebrow>{t.services.eyebrow}</Eyebrow>
+              <h2 className="mt-4 text-3xl sm:text-4xl">{t.services.title}</h2>
+            </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {t.services.items.map((item, i) => (
-                <article key={item.title} className="rounded-sm border border-border bg-card p-8">
+                <Reveal key={item.title} delay={i * 90} className="h-full">
+                <article className="card-lift h-full rounded-sm border border-border bg-card p-8">
                   <span className="text-accent">
                     {i === 0 ? <Building2 className="h-6 w-6" /> : i === 1 ? <Coffee className="h-6 w-6" /> : i === 2 ? <Hotel className="h-6 w-6" /> : <Ruler className="h-6 w-6" />}
                   </span>
                   <h3 className="mt-5 text-xl">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
                 </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -177,15 +186,19 @@ function Site() {
         {/* How it works */}
         <section id="process" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <Eyebrow>{t.process.eyebrow}</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl">{t.process.title}</h2>
+            <Reveal>
+              <Eyebrow>{t.process.eyebrow}</Eyebrow>
+              <h2 className="mt-4 text-3xl sm:text-4xl">{t.process.title}</h2>
+            </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {t.process.steps.map((step, i) => (
-                <article key={step.title} className="rounded-sm border border-border bg-card p-8">
+                <Reveal key={step.title} delay={i * 120} className="h-full">
+                <article className="card-lift h-full rounded-sm border border-border bg-card p-8">
                   <span className="eyebrow text-accent">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-4 text-xl">{step.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
                 </article>
+                </Reveal>
               ))}
             </div>
             <p className="mt-6 max-w-2xl text-sm text-muted-foreground">{t.process.note}</p>
@@ -230,20 +243,20 @@ function Site() {
                 <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.pricing.note}</p>
               </div>
               <p className="inline-flex w-fit items-center gap-2 rounded-sm border border-accent px-4 py-2 text-xs tracking-[0.2em] text-accent uppercase">
-                <Clock className="h-4 w-4 shrink-0" /> {t.pricing.badge}
+                <Clock className="h-4 w-4 shrink-0" /> <CountUp text={t.pricing.badge} />
               </p>
             </div>
 
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {t.pricing.tiers.map((tier) => {
+              {t.pricing.tiers.map((tier, i) => {
                 return (
+                  <Reveal key={tier.size} delay={i * 90} className="h-full">
                   <article
-                    key={tier.size}
-                    className="flex flex-col rounded-sm border border-accent bg-primary p-8 text-primary-foreground"
+                    className="card-lift flex h-full flex-col rounded-sm border border-accent bg-primary p-8 text-primary-foreground"
                   >
                     <ArchIcon className="h-7 w-7 text-accent" />
                     <div className="mt-6">
-                      <p className="font-display text-3xl font-bold">{tier.price}</p>
+                      <p className="font-display text-3xl font-bold"><CountUp text={tier.price} /></p>
                       <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
                     </div>
                     <div className="mt-auto flex justify-center pt-6">
@@ -252,6 +265,7 @@ function Site() {
                       </a>
                     </div>
                   </article>
+                  </Reveal>
                 );
               })}
             </div>
@@ -262,10 +276,10 @@ function Site() {
         {/* About */}
         <section id="packages" className="section scroll-mt-28 bg-secondary">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <div className="max-w-2xl">
+            <Reveal className="max-w-2xl">
               <h2 className="text-3xl sm:text-4xl">{t.packages.title}</h2>
               <p className="mt-4 text-muted-foreground">{t.packages.subtitle}</p>
-            </div>
+            </Reveal>
             <div className="mt-12">
               <PlanCards />
             </div>
@@ -275,25 +289,28 @@ function Site() {
         {/* Testimonials */}
         <section id="testimonials" className="section scroll-mt-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <Eyebrow>{t.testimonials.eyebrow}</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl">{t.testimonials.title}</h2>
+            <Reveal>
+              <Eyebrow>{t.testimonials.eyebrow}</Eyebrow>
+              <h2 className="mt-4 text-3xl sm:text-4xl">{t.testimonials.title}</h2>
+            </Reveal>
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {t.testimonials.items.map((item) => (
+              {t.testimonials.items.map((item, i) => (
+                <Reveal key={item.author} delay={i * 110} className="h-full">
                 <blockquote
-                  key={item.author}
-                  className="rounded-sm border border-border bg-card p-8"
+                  className="card-lift h-full rounded-sm border border-border bg-card p-8"
                 >
                   <Quote className="h-6 w-6 text-accent" />
                   <p className="mt-5 whitespace-pre-line text-base leading-relaxed">{item.quote}</p>
                   <footer className="eyebrow mt-6 text-muted-foreground">{item.author}</footer>
                 </blockquote>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
         <section id="about" className="section scroll-mt-28 bg-primary text-primary-foreground">
-          <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+          <Reveal className="mx-auto max-w-3xl px-5 text-center sm:px-8">
             <ArchIcon className="mx-auto h-9 w-9 text-accent" />
             <p className="eyebrow mt-6 text-accent">{t.about.eyebrow}</p>
             <h2 className="mt-4 text-3xl sm:text-4xl">{t.about.title}</h2>
@@ -307,7 +324,7 @@ function Site() {
                 </p>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Contact */}
