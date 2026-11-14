@@ -164,7 +164,11 @@ function Site() {
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {tours.map((tour, i) => (
                 <Reveal key={tour.name} delay={i * 110} className="h-full">
-                  <TourCard tour={tour} open={t.tours.open} />
+                  <TourCard
+                    tour={tour}
+                    open={t.tours.open}
+                    hint={{ mouse: t.tours.hintMouse, touch: t.tours.hintTouch }}
+                  />
                 </Reveal>
               ))}
             </div>

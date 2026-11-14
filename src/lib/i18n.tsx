@@ -36,6 +36,8 @@ export const hu = {
     title: "Nézzen körbe",
     note: "A túrák új lapon nyílnak meg.",
     open: "Túra megtekintése",
+    hintMouse: "Irányítsa az egérrel",
+    hintTouch: "Irányítsa az ujjával",
     items: [
       { name: "Belvárosi polgári lakás", type: "170 m² · erkéllyel", client: "Duna House · Nagy Elisabeta" },
       { name: "Külvárosi lakás", type: "53 m²", client: "Komplex Ingatlaniroda · Borbély Róbert" },
@@ -205,6 +207,8 @@ export const en: Dict = {
     title: "Take a look around",
     note: "Tours open in a new tab.",
     open: "View tour",
+    hintMouse: "Steer it with your mouse",
+    hintTouch: "Steer it with your finger",
     items: [
       { name: "Downtown apartment", type: "170 m² · balcony", client: "Duna House · Elisabeta Nagy" },
       { name: "Suburban apartment", type: "53 m²", client: "Komplex Ingatlaniroda · Róbert Borbély" },

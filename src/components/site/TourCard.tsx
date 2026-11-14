@@ -1,4 +1,5 @@
-import { Compass } from "lucide-react";
+import { useState } from "react";
+import { Compass, Hand, MousePointer2 } from "lucide-react";
 
 import { PanoView } from "@/components/site/PanoView";
 
@@ -19,9 +20,25 @@ export type Tour = {
   url?: string | undefined;
 };
 
-export function TourCard({ tour, open }: { tour: Tour; open: string }) {
+export function TourCard({
+  tour,
+  open,
+  hint,
+}: {
+  tour: Tour;
+  open: string;
+  /** Labels for the 360° cards: mouse devices vs touchscreens. */
+  hint?: { mouse: string; touch: string } | undefined;
+}) {
+  // Touchscreens have no hover, so hide the hint once the card is touched.
+  const [touched, setTouched] = useState(false);
   return (
-    <figure className="card-lift group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card">
+    <figure
+      onPointerDown={(e) => {
+        if (e.pointerType !== "mouse") setTouched(true);
+      }}
+      className="card-lift group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card"
+    >
       <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
         {tour.pano ? (
           <PanoView
@@ -43,13 +60,26 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
         )}
         <div
           className={`absolute inset-0 grid place-items-center transition-opacity duration-500 ${
-            tour.pano ? "pointer-events-none bg-primary/30 group-hover:opacity-0" : "bg-primary/45"
+            tour.pano
+              ? `pointer-events-none bg-primary/30 group-hover:opacity-0 ${touched ? "opacity-0" : ""}`
+              : "bg-primary/45"
           }`}
         >
-          <span className="flex flex-col items-center gap-2 text-primary-foreground">
-            <Compass className="h-8 w-8 text-accent" />
-            <span className="eyebrow">360°</span>
-          </span>
+          {tour.pano && hint ? (
+            <span className="flex flex-col items-center gap-2 text-center text-primary-foreground">
+              {/* Mouse devices */}
+              <MousePointer2 className="h-7 w-7 animate-pulse text-accent [@media(hover:none)]:hidden" />
+              <span className="eyebrow [@media(hover:none)]:hidden">{hint.mouse}</span>
+              {/* Touchscreens */}
+              <Hand className="hidden h-7 w-7 animate-pulse text-accent [@media(hover:none)]:block" />
+              <span className="eyebrow hidden [@media(hover:none)]:inline">{hint.touch}</span>
+            </span>
+          ) : (
+            <span className="flex flex-col items-center gap-2 text-primary-foreground">
+              <Compass className="h-8 w-8 text-accent" />
+              <span className="eyebrow">360°</span>
+            </span>
+          )}
         </div>
       </div>
       <figcaption className="flex flex-1 flex-col justify-between gap-4 px-5 py-5">
