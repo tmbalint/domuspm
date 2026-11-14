@@ -17,8 +17,8 @@ type Props = {
   alt: string;
   /** Starting direction in degrees (0 = centre of the panorama). */
   yaw?: number | undefined;
-  /** Extra delay before the one-time peek, ms (to stagger cards). */
-  peekDelay?: number | undefined;
+  /** Position in the left → right peek sequence. */
+  order?: number | undefined;
   className?: string | undefined;
 };
 
@@ -51,7 +51,46 @@ void main() {
   gl_FragColor = texture2D(tex, uv);
 }`;
 
-export function PanoView({ src, fallback, alt, yaw = 0, peekDelay = 0, className = "" }: Props) {
+// ─── Peek sequencer ─────────────────────────────────────────────────────────
+// Cards ask for their one-time "peek" when they come on screen. Peeks run one
+// at a time, in card order (left → right). As soon as the visitor hovers or
+// touches any 360° card, the whole sequence stops for good.
+type PeekJob = { order: number; run: () => Promise<void>; stop: () => void };
+const peek = {
+  cancelled: false,
+  pending: [] as PeekJob[],
+  current: null as PeekJob | null,
+  flushTimer: 0,
+};
+
+function requestPeek(job: PeekJob) {
+  if (peek.cancelled) return;
+  peek.pending.push(job);
+  // Cards that appear together are collected briefly, then sorted by order.
+  window.clearTimeout(peek.flushTimer);
+  peek.flushTimer = window.setTimeout(runNextPeek, 80);
+}
+
+function runNextPeek() {
+  if (peek.cancelled || peek.current || peek.pending.length === 0) return;
+  peek.pending.sort((a, b) => a.order - b.order);
+  const job = peek.pending.shift()!;
+  peek.current = job;
+  job.run().then(() => {
+    if (peek.current === job) peek.current = null;
+    runNextPeek();
+  });
+}
+
+function cancelAllPeeks() {
+  if (peek.cancelled) return;
+  peek.cancelled = true;
+  peek.pending = [];
+  peek.current?.stop();
+  peek.current = null;
+}
+
+export function PanoView({ src, fallback, alt, yaw = 0, order = 0, className = "" }: Props) {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [ready, setReady] = useState(false);
@@ -127,10 +166,13 @@ export function PanoView({ src, fallback, alt, yaw = 0, peekDelay = 0, className
       kick();
     };
 
+    const onEnter = () => cancelAllPeeks();
     const onMove = (e: PointerEvent) => {
+      cancelAllPeeks();
       if (e.pointerType === "mouse" || dragging) aim(e.clientX, e.clientY);
     };
     const onDown = (e: PointerEvent) => {
+      cancelAllPeeks();
       if (e.pointerType !== "mouse") {
         dragging = true;
         aim(e.clientX, e.clientY);
@@ -190,6 +232,7 @@ export function PanoView({ src, fallback, alt, yaw = 0, peekDelay = 0, className
         draw();
         setReady(true);
         startPeekWatch();
+        wrap.addEventListener("pointerenter", onEnter);
         wrap.addEventListener("pointermove", onMove);
         wrap.addEventListener("pointerdown", onDown);
         wrap.addEventListener("pointerup", onUp);
@@ -199,31 +242,49 @@ export function PanoView({ src, fallback, alt, yaw = 0, peekDelay = 0, className
       img.src = src;
     };
 
-    // One-time "peek": when the card is first properly on screen, glance
-    // left, then right, then settle, so visitors notice it is a live 360° view.
+    // One-time "peek": glance left, then right, then settle, so visitors
+    // notice it is a live 360° view. Queued through the sequencer above.
     const startPeekWatch = () => {
       if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
       peekIO = new IntersectionObserver(
         (entries) => {
           if (!entries.some((e) => e.isIntersecting)) return;
           peekIO?.disconnect();
-          const steps: [number, number, number][] = [
-            // [delay ms, yaw offset deg, pitch deg]
-            [250, -38, -6],
-            [1150, 38, 8],
-            [2250, 0, 0],
-          ];
-          ease = 0.05;
-          for (const [delay, dy, dp] of steps) {
-            peekTimers.push(
-              window.setTimeout(() => {
-                target.yaw = baseYaw + (dy * Math.PI) / 180;
-                target.pitch = (dp * Math.PI) / 180;
-                kick();
-              }, delay + peekDelay),
-            );
-          }
-          peekTimers.push(window.setTimeout(() => (ease = 0.12), 3600 + peekDelay));
+          requestPeek({
+            order,
+            stop: () => {
+              stopPeek();
+              target.yaw = baseYaw;
+              target.pitch = 0;
+              kick();
+            },
+            run: () =>
+              new Promise<void>((resolve) => {
+                const steps: [number, number, number][] = [
+                  // [delay ms, yaw offset deg, pitch deg]
+                  [100, -38, -6],
+                  [1000, 38, 8],
+                  [2100, 0, 0],
+                ];
+                ease = 0.05;
+                for (const [delay, dy, dp] of steps) {
+                  peekTimers.push(
+                    window.setTimeout(() => {
+                      target.yaw = baseYaw + (dy * Math.PI) / 180;
+                      target.pitch = (dp * Math.PI) / 180;
+                      kick();
+                    }, delay),
+                  );
+                }
+                // Next card starts as this one settles.
+                peekTimers.push(
+                  window.setTimeout(() => {
+                    ease = 0.12;
+                    resolve();
+                  }, 3000),
+                );
+              }),
+          });
         },
         { threshold: 0.7 },
       );
@@ -252,13 +313,14 @@ export function PanoView({ src, fallback, alt, yaw = 0, peekDelay = 0, className
       io.disconnect();
       ro.disconnect();
       if (raf) cancelAnimationFrame(raf);
+      wrap.removeEventListener("pointerenter", onEnter);
       wrap.removeEventListener("pointermove", onMove);
       wrap.removeEventListener("pointerdown", onDown);
       wrap.removeEventListener("pointerup", onUp);
       wrap.removeEventListener("pointerleave", onLeave);
       wrap.removeEventListener("pointercancel", onLeave);
     };
-  }, [src, yaw, peekDelay]);
+  }, [src, yaw, order]);
 
   return (
     <div

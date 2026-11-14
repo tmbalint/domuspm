@@ -10,8 +10,8 @@ export type Tour = {
   pano?: string | undefined;
   /** Starting direction of the 360° view, degrees. */
   panoYaw?: number | undefined;
-  /** Stagger for the one-time peek, ms. */
-  panoDelay?: number | undefined;
+  /** Position in the left → right peek sequence. */
+  panoOrder?: number | undefined;
   /** Client agency · agent, shown under the size line. */
   client?: string | undefined;
   image: string;
@@ -29,7 +29,7 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
             fallback={tour.image}
             alt={tour.name}
             yaw={tour.panoYaw}
-            peekDelay={tour.panoDelay}
+            order={tour.panoOrder}
           />
         ) : (
           <img

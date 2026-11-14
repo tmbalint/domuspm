@@ -112,7 +112,7 @@ function Site() {
     url: tourLinks[i],
     pano: tourPanos[i]?.src,
     panoYaw: tourPanos[i]?.yaw,
-    panoDelay: i * 450,
+    panoOrder: i,
   }));
 
   return (
