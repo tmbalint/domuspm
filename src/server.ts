@@ -44,12 +44,41 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+// Security headers for every server-rendered response (vercel.json sets the
+// same ones for static files). Invisible to visitors.
+const SECURITY_HEADERS: Record<string, string> = {
+  "X-Frame-Options": "DENY",
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+};
+
+function withSecurityHeaders(response: Response): Response {
+  try {
+    for (const [k, v] of Object.entries(SECURITY_HEADERS)) {
+      if (!response.headers.has(k)) response.headers.set(k, v);
+    }
+    return response;
+  } catch {
+    // Immutable headers (e.g. some proxied responses): copy into a new Response.
+    const headers = new Headers(response.headers);
+    for (const [k, v] of Object.entries(SECURITY_HEADERS)) {
+      if (!headers.has(k)) headers.set(k, v);
+    }
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
