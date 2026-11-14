@@ -3,6 +3,8 @@ import { Compass } from "lucide-react";
 export type Tour = {
   name: string;
   type: string;
+  /** Client agency · agent, shown under the size line. */
+  client?: string | undefined;
   image: string;
   /** Keypano tour link — opened in a new tab (Keypano blocks iframe embedding). */
   url?: string | undefined;
@@ -31,6 +33,9 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
         <div>
           <p className="font-display text-base font-bold leading-snug">{tour.name}</p>
           <p className="mt-1 text-sm text-muted-foreground">{tour.type}</p>
+          {tour.client && (
+            <p className="mt-3 text-xs tracking-wide text-accent">{tour.client}</p>
+          )}
         </div>
         {tour.url && (
           <a

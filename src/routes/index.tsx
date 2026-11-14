@@ -343,6 +343,9 @@ function ContactSection() {
 
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  // Spam trap: hidden from people, bots tick it. Web3Forms drops any
+  // submission where botcheck is true.
+  const [botcheck, setBotcheck] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", type: "0", size: "0", squaremeter: "", city: "", floorplan: "0", message: "" });
 
   const update = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
@@ -378,6 +381,7 @@ function ContactSection() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: "6c4c39e7-b049-4a1c-b614-4b57e8aa4432",
+          botcheck,
           name: form.name,
           phone: form.phone,
           ...(form.email ? { email: form.email } : {}),
@@ -441,6 +445,16 @@ function ContactSection() {
               </div>
             )}
 
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              checked={botcheck}
+              onChange={(e) => setBotcheck(e.target.checked)}
+              className="hidden"
+            />
             <label className="grid gap-2">
               <span className="eyebrow text-muted-foreground">{t.contact.name}</span>
               <input

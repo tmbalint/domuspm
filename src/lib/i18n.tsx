@@ -37,9 +37,9 @@ export const hu = {
     note: "A túrák új lapon nyílnak meg.",
     open: "Túra megtekintése",
     items: [
-      { name: "Belvárosi polgári lakás", type: "170 m² · erkéllyel" },
-      { name: "Külvárosi lakás", type: "53 m²" },
-      { name: "Kertvárosi családi ház", type: "293 m² · 3 szint · kerttel" },
+      { name: "Belvárosi polgári lakás", type: "170 m² · erkéllyel", client: "Duna House · Nagy Elisabeta" },
+      { name: "Külvárosi lakás", type: "53 m²", client: "Komplex Ingatlaniroda · Borbély Róbert" },
+      { name: "Kertvárosi családi ház", type: "293 m² · 3 szint · kerttel", client: "Komplex Ingatlaniroda · Borbély Róbert" },
     ],
   },
   services: {
@@ -206,9 +206,9 @@ export const en: Dict = {
     note: "Tours open in a new tab.",
     open: "View tour",
     items: [
-      { name: "Downtown apartment", type: "170 m² · balcony" },
-      { name: "Suburban apartment", type: "53 m²" },
-      { name: "Suburban family house", type: "293 m² · 3 floors · garden" },
+      { name: "Downtown apartment", type: "170 m² · balcony", client: "Duna House · Elisabeta Nagy" },
+      { name: "Suburban apartment", type: "53 m²", client: "Komplex Ingatlaniroda · Róbert Borbély" },
+      { name: "Suburban family house", type: "293 m² · 3 floors · garden", client: "Komplex Ingatlaniroda · Róbert Borbély" },
     ],
   },
   services: {
