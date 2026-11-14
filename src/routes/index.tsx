@@ -134,7 +134,7 @@ function Site() {
                 </a>
               </div>
               <p className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.2em] text-accent uppercase">
-                <Clock className="h-4 w-4" /> <CountUp text={t.hero.badge} />
+                <Clock className="h-4 w-4" /> {t.hero.badge}
               </p>
             </div>
           </div>
@@ -243,7 +243,7 @@ function Site() {
                 <p className="mt-3 max-w-xl text-sm text-muted-foreground">{t.pricing.note}</p>
               </div>
               <p className="inline-flex w-fit items-center gap-2 rounded-sm border border-accent px-4 py-2 text-xs tracking-[0.2em] text-accent uppercase">
-                <Clock className="h-4 w-4 shrink-0" /> <CountUp text={t.pricing.badge} />
+                <Clock className="h-4 w-4 shrink-0" /> {t.pricing.badge}
               </p>
             </div>
 
