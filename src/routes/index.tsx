@@ -202,7 +202,7 @@ function Site() {
               ))}
             </div>
             <p className="mt-6 max-w-2xl text-sm text-muted-foreground">{t.process.note}</p>
-            <article className="mt-10 rounded-sm border border-border bg-card p-8">
+            <article className="card-lift mt-10 rounded-sm border border-border bg-card p-8">
               <div className="flex items-start gap-4">
                 <ArchIcon className="mt-1 h-7 w-7 shrink-0 text-accent" />
                 <div className="space-y-2">
@@ -212,7 +212,7 @@ function Site() {
                 </div>
               </div>
             </article>
-            <article className="mt-6 rounded-sm border border-accent bg-card p-8">
+            <article className="card-lift mt-6 rounded-sm border border-accent bg-card p-8">
               <div className="flex items-start gap-4">
                 <Ruler className="mt-1 h-7 w-7 shrink-0 text-accent" />
                 <div className="space-y-2">
