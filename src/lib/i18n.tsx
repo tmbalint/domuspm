@@ -11,7 +11,7 @@ export const hu = {
       "360° virtuális túrák otthonokhoz, Airbnb-hez és üzletekhez Budapesten és Mosonmagyaróváron. Google Térképre és weboldalra beágyazva, 48 órán belül kész.",
   },
   nav: {
-    tours: "Bemutató túrák",
+    tours: "Korábbi munkáink",
     services: "Szolgáltatások",
     pricing: "Árak",
     packages: "Havi csomagok",
@@ -180,7 +180,7 @@ export const en: Dict = {
       "360° virtual tours for homes, Airbnb rentals and small businesses in Budapest and Mosonmagyaróvár. Embedded on Google Maps and your website, ready in 48 hours.",
   },
   nav: {
-    tours: "Sample tours",
+    tours: "Our works",
     services: "Services",
     pricing: "Pricing",
     packages: "Monthly plans",
