@@ -17,6 +17,8 @@ type Props = {
   alt: string;
   /** Starting direction in degrees (0 = centre of the panorama). */
   yaw?: number | undefined;
+  /** Extra delay before the one-time peek, ms (to stagger cards). */
+  peekDelay?: number | undefined;
   className?: string | undefined;
 };
 
@@ -49,7 +51,7 @@ void main() {
   gl_FragColor = texture2D(tex, uv);
 }`;
 
-export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props) {
+export function PanoView({ src, fallback, alt, yaw = 0, peekDelay = 0, className = "" }: Props) {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [ready, setReady] = useState(false);
@@ -218,10 +220,10 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
                 target.yaw = baseYaw + (dy * Math.PI) / 180;
                 target.pitch = (dp * Math.PI) / 180;
                 kick();
-              }, delay),
+              }, delay + peekDelay),
             );
           }
-          peekTimers.push(window.setTimeout(() => (ease = 0.12), 3600));
+          peekTimers.push(window.setTimeout(() => (ease = 0.12), 3600 + peekDelay));
         },
         { threshold: 0.7 },
       );
@@ -256,7 +258,7 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
       wrap.removeEventListener("pointerleave", onLeave);
       wrap.removeEventListener("pointercancel", onLeave);
     };
-  }, [src, yaw]);
+  }, [src, yaw, peekDelay]);
 
   return (
     <div

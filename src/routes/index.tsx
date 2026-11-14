@@ -7,6 +7,8 @@ import vagodhidCover from "@/assets/vagodhid-cover.jpg";
 import gyongyosCover from "@/assets/gyongyos_cover_3.jpg";
 import belvarosiCover from "@/assets/belvarosi-cover.jpg";
 import vagodhid360 from "@/assets/vagodhid-360.jpg";
+import gyongyos360 from "@/assets/gyongyos-360.jpg";
+import belvarosi360 from "@/assets/belvarosi-360.jpg";
 
 import { LangProvider, hu, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
@@ -88,9 +90,9 @@ const tourCovers = [belvarosiCover, vagodhidCover, gyongyosCover];
 // Full 360° panoramas + starting direction (same order as tourCovers);
 // undefined = static cover only.
 const tourPanos: ({ src: string; yaw: number } | undefined)[] = [
-  undefined,
+  { src: belvarosi360, yaw: 52 },
   { src: vagodhid360, yaw: -75 },
-  undefined,
+  { src: gyongyos360, yaw: 43 },
 ];
 
 function Page() {
@@ -110,6 +112,7 @@ function Site() {
     url: tourLinks[i],
     pano: tourPanos[i]?.src,
     panoYaw: tourPanos[i]?.yaw,
+    panoDelay: i * 450,
   }));
 
   return (
