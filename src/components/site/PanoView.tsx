@@ -261,10 +261,11 @@ export function PanoView({ src, fallback, alt, yaw = 0, order = 0, className = "
             run: () =>
               new Promise<void>((resolve) => {
                 const steps: [number, number, number][] = [
-                  // [delay ms, yaw offset deg, pitch deg]
-                  [100, -38, -6],
-                  [1000, 38, 8],
-                  [2100, 0, 0],
+                  // [delay ms, yaw offset deg, pitch deg] (negative pitch = up)
+                  [100, 38, -12], // right + up
+                  [1000, 0, 0], // back to start
+                  [1800, -38, 12], // left + down
+                  [2700, 0, 0], // back to start
                 ];
                 ease = 0.05;
                 for (const [delay, dy, dp] of steps) {
@@ -281,7 +282,7 @@ export function PanoView({ src, fallback, alt, yaw = 0, order = 0, className = "
                   window.setTimeout(() => {
                     ease = 0.12;
                     resolve();
-                  }, 3000),
+                  }, 3700),
                 );
               }),
           });

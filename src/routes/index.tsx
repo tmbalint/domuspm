@@ -90,9 +90,9 @@ const tourCovers = [belvarosiCover, vagodhidCover, gyongyosCover];
 // Full 360° panoramas + starting direction (same order as tourCovers);
 // undefined = static cover only.
 const tourPanos: ({ src: string; yaw: number } | undefined)[] = [
-  { src: belvarosi360, yaw: 52 },
+  { src: belvarosi360, yaw: 82 },
   { src: vagodhid360, yaw: -75 },
-  { src: gyongyos360, yaw: 43 },
+  { src: gyongyos360, yaw: 58 },
 ];
 
 function Page() {
