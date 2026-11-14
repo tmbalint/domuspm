@@ -69,6 +69,14 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
     let raf = 0;
     let disposed = false;
     let dragging = false;
+    let ease = 0.12;
+    let peekTimers: number[] = [];
+    let peekIO: IntersectionObserver | null = null;
+    const stopPeek = () => {
+      peekTimers.forEach((t) => clearTimeout(t));
+      peekTimers = [];
+      ease = 0.12;
+    };
 
     const draw = () => {
       if (!gl) return;
@@ -88,8 +96,8 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
 
     const tick = () => {
       raf = 0;
-      view.yaw += (target.yaw - view.yaw) * 0.12;
-      view.pitch += (target.pitch - view.pitch) * 0.12;
+      view.yaw += (target.yaw - view.yaw) * ease;
+      view.pitch += (target.pitch - view.pitch) * ease;
       draw();
       if (
         Math.abs(target.yaw - view.yaw) > 0.0005 ||
@@ -103,6 +111,7 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
     };
 
     const aim = (clientX: number, clientY: number) => {
+      stopPeek();
       const r = wrap.getBoundingClientRect();
       const x = (clientX - r.left) / r.width - 0.5;
       const y = (clientY - r.top) / r.height - 0.5;
@@ -178,6 +187,7 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
         draw();
         setReady(true);
+        startPeekWatch();
         wrap.addEventListener("pointermove", onMove);
         wrap.addEventListener("pointerdown", onDown);
         wrap.addEventListener("pointerup", onUp);
@@ -185,6 +195,37 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
         wrap.addEventListener("pointercancel", onLeave);
       };
       img.src = src;
+    };
+
+    // One-time "peek": when the card is first properly on screen, glance
+    // left, then right, then settle, so visitors notice it is a live 360° view.
+    const startPeekWatch = () => {
+      if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+      peekIO = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          peekIO?.disconnect();
+          const steps: [number, number, number][] = [
+            // [delay ms, yaw offset deg, pitch deg]
+            [250, -38, -6],
+            [1150, 38, 8],
+            [2250, 0, 0],
+          ];
+          ease = 0.05;
+          for (const [delay, dy, dp] of steps) {
+            peekTimers.push(
+              window.setTimeout(() => {
+                target.yaw = baseYaw + (dy * Math.PI) / 180;
+                target.pitch = (dp * Math.PI) / 180;
+                kick();
+              }, delay),
+            );
+          }
+          peekTimers.push(window.setTimeout(() => (ease = 0.12), 3600));
+        },
+        { threshold: 0.7 },
+      );
+      peekIO.observe(wrap);
     };
 
     // Only load the panorama when the card gets near the screen.
@@ -204,6 +245,8 @@ export function PanoView({ src, fallback, alt, yaw = 0, className = "" }: Props)
 
     return () => {
       disposed = true;
+      stopPeek();
+      peekIO?.disconnect();
       io.disconnect();
       ro.disconnect();
       if (raf) cancelAnimationFrame(raf);
