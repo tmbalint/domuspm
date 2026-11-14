@@ -6,7 +6,7 @@ import heroImg from "@/assets/hero.jpg";
 import vagodhidCover from "@/assets/vagodhid-cover.jpg";
 import gyongyosCover from "@/assets/gyongyos_cover_3.jpg";
 import belvarosiCover from "@/assets/belvarosi-cover.jpg";
-import vagodhidPano from "@/assets/vagodhid-pano.jpg";
+import vagodhid360 from "@/assets/vagodhid-360.jpg";
 
 import { LangProvider, hu, useLang } from "@/lib/i18n";
 import { PlanCards } from "@/components/site/PlanCards";
@@ -85,8 +85,13 @@ const tourLinks = [
   "https://www.keypano.com/v/8e6pad67xae2x2-1792699797.html",
 ];
 const tourCovers = [belvarosiCover, vagodhidCover, gyongyosCover];
-// 360° strips (same order as tourCovers); undefined = static cover.
-const tourPanos: (string | undefined)[] = [undefined, vagodhidPano, undefined];
+// Full 360° panoramas + starting direction (same order as tourCovers);
+// undefined = static cover only.
+const tourPanos: ({ src: string; yaw: number } | undefined)[] = [
+  undefined,
+  { src: vagodhid360, yaw: -75 },
+  undefined,
+];
 
 function Page() {
   return (
@@ -103,7 +108,8 @@ function Site() {
     ...item,
     image: tourCovers[i] ?? tourCovers[0]!,
     url: tourLinks[i],
-    pano: tourPanos[i],
+    pano: tourPanos[i]?.src,
+    panoYaw: tourPanos[i]?.yaw,
   }));
 
   return (

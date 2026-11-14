@@ -1,12 +1,15 @@
 import { Compass } from "lucide-react";
 
+import { PanoView } from "@/components/site/PanoView";
+
 export type Tour = {
   name: string;
   type: string;
-  /** Optional 360° panorama strip (horizontal band of the equirectangular
-   *  image). When set, the card slowly pans around the room instead of
-   *  showing the static cover. */
+  /** Optional full equirectangular panorama. When set, the card becomes a
+   *  small 360° view that follows the cursor (see PanoView). */
   pano?: string | undefined;
+  /** Starting direction of the 360° view, degrees. */
+  panoYaw?: number | undefined;
   /** Client agency · agent, shown under the size line. */
   client?: string | undefined;
   image: string;
@@ -19,22 +22,7 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
     <figure className="card-lift group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card">
       <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
         {tour.pano ? (
-          <>
-            {/* Static cover for reduced-motion visitors */}
-            <img
-              src={tour.image}
-              alt={tour.name}
-              loading="lazy"
-              width={1200}
-              height={800}
-              className="pano-fallback h-full w-full object-cover"
-            />
-            {/* Two copies side by side; sliding by half loops seamlessly. */}
-            <div className="pano-track absolute inset-y-0 left-0 flex h-full" aria-hidden="true">
-              <img src={tour.pano} alt="" loading="lazy" className="h-full w-auto max-w-none" />
-              <img src={tour.pano} alt="" loading="lazy" className="h-full w-auto max-w-none" />
-            </div>
-          </>
+          <PanoView src={tour.pano} fallback={tour.image} alt={tour.name} yaw={tour.panoYaw} />
         ) : (
           <img
             src={tour.image}
@@ -47,7 +35,7 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
         )}
         <div
           className={`absolute inset-0 grid place-items-center transition-opacity duration-500 ${
-            tour.pano ? "bg-primary/30 group-hover:opacity-0" : "bg-primary/45"
+            tour.pano ? "pointer-events-none bg-primary/30 group-hover:opacity-0" : "bg-primary/45"
           }`}
         >
           <span className="flex flex-col items-center gap-2 text-primary-foreground">
@@ -60,9 +48,7 @@ export function TourCard({ tour, open }: { tour: Tour; open: string }) {
         <div>
           <p className="font-display text-base font-bold leading-snug">{tour.name}</p>
           <p className="mt-1 text-sm text-muted-foreground">{tour.type}</p>
-          {tour.client && (
-            <p className="mt-3 text-xs tracking-wide text-accent">{tour.client}</p>
-          )}
+          {tour.client && <p className="mt-3 text-xs tracking-wide text-accent">{tour.client}</p>}
         </div>
         {tour.url && (
           <a

@@ -271,30 +271,3 @@
   }
 }
 
-/* 360° pan on tour cards (see TourCard) */
-.pano-fallback {
-  display: none;
-}
-.pano-track {
-  width: max-content;
-  animation: pano-pan 70s linear infinite;
-  /* start on the kitchen / living room rather than the hallway */
-  animation-delay: -6s;
-  will-change: transform;
-}
-@keyframes pano-pan {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pano-track {
-    display: none;
-  }
-  .pano-fallback {
-    display: block;
-  }
-}
