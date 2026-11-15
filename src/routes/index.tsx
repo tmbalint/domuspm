@@ -282,10 +282,10 @@ function Site() {
                         const unitText = /\sper\s/.test(surcharge) ? `per ${unit.join(" ")}` : `/ ${unit.join(" / ")}`;
                         return (
                           <div className="mt-2">
-                            <p className="font-display text-2xl font-bold text-accent">
+                            <p className="font-display text-2xl font-bold">
                               + <CountUp text={amount} />
                             </p>
-                            <p className="text-xs tracking-wide text-accent/80">{unitText}</p>
+                            <p className="text-xs tracking-wide text-primary-foreground/70">{unitText}</p>
                           </div>
                         );
                       })()}
