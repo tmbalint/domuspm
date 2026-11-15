@@ -276,9 +276,19 @@ function Site() {
                     <ArchIcon className="h-7 w-7 text-accent" />
                     <div className="mt-6">
                       <p className="font-display text-3xl font-bold"><CountUp text={basePrice} /></p>
-                      {surcharge && (
-                        <p className="mt-2 text-sm font-medium text-accent">+ {surcharge}</p>
-                      )}
+                      {surcharge && (() => {
+                        // "14 990 Ft / megkezdett 100 m²" → amount + unit
+                        const [amount, ...unit] = surcharge.split(/\s\/\s|\sper\s/);
+                        const unitText = /\sper\s/.test(surcharge) ? `per ${unit.join(" ")}` : `/ ${unit.join(" / ")}`;
+                        return (
+                          <div className="mt-2">
+                            <p className="font-display text-2xl font-bold text-accent">
+                              + <CountUp text={amount} />
+                            </p>
+                            <p className="text-xs tracking-wide text-accent/80">{unitText}</p>
+                          </div>
+                        );
+                      })()}
                       <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
                     </div>
                     <div className="mt-auto flex justify-center pt-6">
