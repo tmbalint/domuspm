@@ -266,6 +266,8 @@ function Site() {
 
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {t.pricing.tiers.map((tier, i) => {
+                // "39 990 Ft + 14 990 Ft / …" → big base price, small surcharge line below
+                const [basePrice, surcharge] = tier.price.split(/\s\+\s/);
                 return (
                   <Reveal key={tier.size} delay={i * 90} className="h-full">
                   <article
@@ -273,7 +275,10 @@ function Site() {
                   >
                     <ArchIcon className="h-7 w-7 text-accent" />
                     <div className="mt-6">
-                      <p className="font-display text-3xl font-bold"><CountUp text={tier.price} /></p>
+                      <p className="font-display text-3xl font-bold"><CountUp text={basePrice} /></p>
+                      {surcharge && (
+                        <p className="mt-2 text-sm font-medium text-accent">+ {surcharge}</p>
+                      )}
                       <p className="mt-2 text-sm text-primary-foreground/70">{tier.size}</p>
                     </div>
                     <div className="mt-auto flex justify-center pt-6">
