@@ -142,6 +142,10 @@ export const hu = {
         quote: "„Elégedettek vagyunk a munkájukkal, profi és igényes munkát végeztek. A szervezés során is rugalmasak és segítőkészek voltak, a virtuális séta pedig hibátlanul működik és mutatja be az ingatlant. Segítségével a hirdetés is kitűnik a többi közül. Ha profi VR-sétát szeretnél az ingatlanodról, bátran ajánlom őket!”",
         author: "Borbély Róbert, Komplex Ingatlaniroda",
       },
+      {
+        quote: "„A virtuális túra elkészítése gyorsan és zökkenőmentesen zajlott, a fotózás is rövid idő alatt megtörtént, és a kész anyagot már másnap kézhez kaptam. A végeredménnyel maximálisan elégedett vagyok, igényes, szép és professzionális munka készült. Köszönöm a gyorsaságot és a precíz munkavégzést! Jó szívvel ajánlom őket mindenkinek!”",
+        author: "Nagy Elisabeta, Duna House – Király utcai iroda",
+      },
     ],
   },
   contact: {
@@ -312,6 +316,10 @@ export const en: Dict = {
       {
         quote: "\"We are satisfied with their work; they did professional, high-quality work. They were flexible and helpful during the organisation as well, and the virtual walkthrough works flawlessly and presents the property well. With its help, the listing also stands out from the others. If you want a professional VR walkthrough of your property, I warmly recommend them!\"",
         author: "Róbert Borbély, Komplex Ingatlaniroda",
+      },
+      {
+        quote: "\"Creating the virtual tour went quickly and smoothly, the photography was done in a short time, and I received the finished material the very next day. I am completely satisfied with the result: high-quality, beautiful and professional work. Thank you for the speed and the precise work! I wholeheartedly recommend them to everyone!\"",
+        author: "Elisabeta Nagy, Duna House – Király utca office",
       },
     ],
   },
